@@ -1,4 +1,4 @@
-# Genetic-Library
+# Genetic-Library Web Project
 A web project, containing the implementation of Genetic Algorithms, such as Selections, Crossovers, and Mutations. This program is intended to be a genetic library for research and development.
 <h2>Genetic Library Web Project Under Development</h2>
 <p> In the following, there is a brief description of the project.</p>
