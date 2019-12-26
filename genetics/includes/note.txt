@@ -1,0 +1,1 @@
+Any php file that just run some scripts and the user does not see them is in this folder.
