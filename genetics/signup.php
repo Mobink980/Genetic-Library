@@ -13,43 +13,44 @@
    //
     if(isset($_GET['error'])){
         if($_GET['error'] == "emptyfields"){//getting the url
-            echo '<p class="signuperror">Fill in all the fields!</p>';
+            echo '<p class="alert alert-danger">Fill in all the fields!</p>';
         }
         else if($_GET['error'] == "invalidmailuid"){
-            echo '<p class="signuperror">You have invalid username and email!</p>';
+            echo '<p class="alert alert-danger">You have invalid username and email!</p>';
         }
         else if($_GET['error'] == "invalidmail"){
-            echo '<p class="signuperror">You have invalid email!</p>';
+            echo '<p class="alert alert-danger">You have invalid email!</p>';
         }
         else if($_GET['error'] == "invaliduid"){
-            echo '<p class="signuperror">You have invalid username!</p>';
+            echo '<p class="alert alert-danger">You have invalid username!</p>';
         }
         else if($_GET['error'] == "passwordcheck"){
-            echo '<p class="signuperror">Your passwords does not match!</p>';
+            echo '<p class="alert alert-danger">Your passwords does not match!</p>';
         }
         else if($_GET['error'] == "passwordlessthan8"){
-            echo '<p class="signuperror">Your password should be at least 8 characters!</p>';
+            echo '<p class="alert alert-danger">Your password should be at least 8 characters!</p>';
         }
         else if($_GET['error'] == "passwordlackcapitalletter"){
-            echo '<p class="signuperror">Your password should contain a capital letter!</p>';
+            echo '<p class="alert alert-danger">Your password should contain a capital letter!</p>';
         }
         else if($_GET['error'] == "passwordlacklowercaseletter"){
-            echo '<p class="signuperror">Your password should contain a lowercase letter!</p>';
+            echo '<p class="alert alert-danger">Your password should contain a lowercase letter!</p>';
         }
         else if($_GET['error'] == "passwordlacknumber"){
-            echo '<p class="signuperror">Your password should contain both alpha and numeric characters</p>';
+            echo '<p class="alert alert-danger">Your password should contain both alpha and numeric characters</p>';
         }
         else if($_GET['error'] == "usertaken"){
-            echo '<p class="signuperror">This username is already taken. Try something else!</p>';
+            echo '<p class="alert alert-danger">This username is already taken. Try something else!</p>';
         }
-
+        else if($_GET['error'] == "emailtaken"){
+            echo '<p class="alert alert-warning">This email already exists. Try signing in!</p>';
+        }
 
     }
-    if(isset($_GET['success'])){ //we have success
-        if($_GET['signup'] == "success"){
-            echo '<p class="signuperror">Signup was successful!</p>';
-        }
-
+    else{
+        // if($_GET['signup'] == "success"){
+        //     echo '<p class="alert alert-success">Signup was successful!</p>';
+        // }
     }
 
    ?>
@@ -64,7 +65,7 @@
         <?php
             if(isset($_GET["newpwd"])){ //looking for reset in the url
                 if($_GET["newpwd"] == "passworduodated"){ //if the email sending was successful, show the message
-                    echo '<p class="signupsuccess">Your password has been reset!</p>';
+                    echo '<p class="alert alert-primary">Your password has been reset!</p>';
                 }
             }
         ?>
