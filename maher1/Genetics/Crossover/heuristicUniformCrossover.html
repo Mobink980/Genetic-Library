@@ -1,0 +1,736 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Genetic Library</title>
+    <!--Attching css to the HTML file.-->
+    <link href="E:\programs\Visual Studio\Genetics.css" rel="stylesheet" type="text/css">
+    <style>
+       body {
+            margin: 0;
+            font-family: 'Times New Roman', Times, serif;
+            color: black;
+        }
+
+        /*#topbar {
+            width: 100%;
+            height: 50px;
+            background-color: #05031A;
+            color: white;
+        }*/
+
+
+
+        #logo {
+            float: left;
+            padding-top: 5px;
+            padding-left: 15px;
+            width: 20px;
+        }
+
+        #signin {
+            font-weight: bold;
+            font-size: 1.2em;
+            padding: 14px 80px 12px 80px;
+            float: left;
+            border-right: 1px solid #17173E;
+        }
+
+
+
+        .break {
+            clear: both;
+        }
+
+        #newsbar {
+            background-image: linear-gradient(green, rgb(0, 97, 24));
+            width: 100%;
+            height: 80px;
+            color: white;
+            padding-top: 16px;
+            padding-left: 13px;
+        }
+
+            #newsbar p {
+                margin: 0;
+                padding: 0;
+            }
+
+        #newsheader {
+            font-size: 3em;
+        }
+
+        #search {
+            padding: 10px 0 0 11px;
+        }
+
+            #search input {
+                height: 20px;
+                border: none;
+                font-size: 0.7em;
+                padding-left: 10px;
+                background-image: url("../photos/search_icon.jpg");
+                background-size: 22px;
+                background-repeat: no-repeat;
+                background-position: right center;
+            }
+
+        .selected {
+            background-color: #EDEDED;
+            color: #222223;
+            height: 30px;
+            position: relative;
+            top: 11px;
+            padding-top: 11px !important;
+        }
+
+        #content {
+            width: 100%;
+            color: #222222;
+            font-size: 0.75em;
+        }
+
+        .date {
+            font-weight: bold;
+        }
+
+        #newsitemheader {
+            padding-left: 10px;
+            color: #030411;
+            font-size: 2.5em;
+        }
+
+        #headingimage {
+            float: left;
+            width: 50%;
+        }
+
+        #newsitem {
+            position: relative;
+            float: left;
+            font-size: 1.3em;
+            width: 510px;
+            left: 10px;
+            top: -19px;
+            text-align: justify;
+        }
+
+            #newsitem a {
+                color: #1929AC;
+                text-decoration: none;
+                font-weight: bold;
+            }
+
+                #newsitem a:hover {
+                    text-decoration: underline;
+                }
+
+                #newsitem a:active {
+                    color: green;
+                    text-decoration: underline;
+                }
+
+        .video {
+            background-image: url("../photos/play.png");
+            background-repeat: no-repeat;
+            background-position: left center;
+            background-size: 15px;
+            padding-left: 20px;
+        }
+
+        .sound {
+            background-image: url("../photos/sound.png");
+            background-repeat: no-repeat;
+            background-position: left center;
+            background-size: 15px;
+            padding-left: 20px;
+        }
+
+        .links-lines {
+            line-height: 1.3em;
+        }
+
+        #watchlisten {
+            background-color: #252424;
+            float: right;
+            width: 400px;
+            height: 700px;
+            position: relative;
+            top: 10px;
+        }
+
+        #headerwatch {
+            color: #E8E8E8;
+            margin: 10px 0 10px 10px;
+            font-size: 1.8em;
+        }
+
+        #wlblock {
+            float: left;
+            background-color: #252424;
+        }
+
+            #wlblock img {
+                width: 300px;
+                height: 250px;
+                position: relative;
+                left: 50px;
+            }
+
+        #watchlisten a {
+            color: #E8E8E8;
+        }
+
+        #watchlisten ul {
+            margin: 0;
+            padding: 0 15px 10px 15px;
+        }
+
+        #watchlisten li {
+            list-style: none;
+            background-image: url("../photos/live.jpg");
+            background-repeat: no-repeat;
+            background-position: left center;
+            background-size: 20px;
+            padding: 6px 2px 2px 25px;
+            font-size: 1.2em;
+            text-align: justify;
+        }
+      
+        #topmenu a {
+            text-decoration: none;
+            color: white;
+        }
+
+            #topmenu a:hover {
+                color: #1458E1;
+            }
+
+        #topicmenue a {
+            text-decoration: none;
+            color: white;
+        }
+
+            #topicmenue a:hover {
+                color: #10c694
+            }
+
+        #topbar {
+            width: 100%;
+            height: 50px;
+            background-image: linear-gradient(green, rgb(0, 97, 24));
+            color: white;
+        }
+
+        #topmenu {
+            float: left;
+        }
+
+            #topmenu ul {
+                margin: 0;
+                padding: 0;
+            }
+
+            #topmenu li {
+                list-style: none;
+                float: left;
+                font-weight: bold;
+                font-size: 0.9em;
+                border-right: 1px solid rgb(17, 172, 51);
+                height: 100%;
+                padding: 17px 20px 12px 20px;
+            }
+
+        #topicmenue {
+            text-align: center;
+        }
+
+            #topicmenue ul {
+                background-image: linear-gradient(rgb(0, 97, 24),black);
+                height: 35px;
+                width: 100%;
+                margin-top: 0;
+                padding: 8px 0 0 0;
+                font-size: 1.1em;
+            }
+
+            #topicmenue li {
+                list-style: none;
+                float: left;
+               
+                color: white;
+                padding: 0 10px;
+                border-right: 1px solid #10c694;
+            }
+
+        #leftSideBar ul {
+            list-style-type: none;
+            margin-top: 15px;
+            padding: 0;
+            width: 15%; /*the width from left of the screen*/
+            background-color: #f1f1f1;
+            position: absolute; /* Full height */
+            height: 400%; /* Make it stick, even on scroll */
+            overflow: scroll; /* Enable scrolling if the sidenav has too much content */
+        }
+
+        #leftSideBar li a {
+            display: block;
+            color: #000;
+            text-align: center;
+            font-size: 1.0em;
+            font-weight: bold;
+            font-family: 'Microsoft Sans Serif';
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+
+            #leftSideBar li a.active {
+                background-color: #4CAF50;
+                color: white;
+            }
+
+            #leftSideBar li a:hover:not(.active) {
+                background-color: #555;
+                color: white;
+            }
+
+        #leftBarFirst {
+            text-align: center;
+            font-size: 1.3em;
+            font-weight: bold;
+            color: white;
+            background-color: #10c694;
+            padding: 10px 0 10px 0;
+            font-family: 'Microsoft Sans Serif';
+        }
+
+        #leftSideBarSelected {
+            background-color: #6eb0af;
+        }
+
+        .main {
+            margin-left: 15%; /*the distance from left of the screen*/
+            padding: 1px 16px;
+            height: 1000px;
+        }
+
+        .footer {
+            position:absolute;
+		margin-bottom: -2020px;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 17%;
+          background-color: rgb(0, 97, 24);
+            color: white;
+        }
+
+            .footer ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                text-align: center;
+                padding: 15px 0 15px 0; /*45px from top and 25px from bottom*/
+            }
+
+            .footer li {
+                display: inline;
+                margin-right: 40px;
+            }
+
+                .footer li a {
+                    text-decoration: none;
+                    color: white;
+                }
+
+            .footer p {
+                text-align: center;
+                color: white;
+            }
+
+            .footer a:hover {
+                color: #10c694;
+            }
+
+        .topButtons button {
+            background-color: #0a704e;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-style: none;
+            padding: 8px 21px;
+            margin-top: 33px;
+            margin-right: 500px;
+            border-radius: 4%;
+        }
+
+            .topButtons button:hover {
+                background-color: #10c694;
+            }
+
+        #name {
+            font-size: 3em;
+            font-weight: bold;
+            font-family: 'Microsoft Sans Serif';
+        }
+
+        .explain {
+            width: 1020px;
+            margin: 0 auto 0 5px;
+        }
+       
+            .explain p {
+                font-size: 1.5em;
+                font-family: 'Microsoft Sans Serif';
+            }
+
+            .explain h1 {
+                font-size: 2.4em;
+                font-weight: bolder;
+                font-family: 'Microsoft Sans Serif';
+            }
+
+            .explain h2 {
+                font-size: 2.1em;
+                font-weight: bold;
+                font-family: 'Microsoft Sans Serif';
+            }
+
+            .explain h3 {
+                font-size: 1.9em;
+                font-weight: bold;
+                font-family: 'Microsoft Sans Serif';
+            }
+
+            .explain h4 {
+                font-size: 1.7em;
+                font-weight: bold;
+                font-family: 'Microsoft Sans Serif';
+            }
+
+            .explain hr {
+                height: 8px;
+                border: 1px;
+                box-shadow: inset 0 9px 9px -3px #10c694;
+                border-radius: 5px;
+            }
+
+            .explain ul {
+                margin-top: 0;
+            }
+
+            .explain li {
+                font-size: 1.5em;
+                font-family: 'Microsoft Sans Serif';
+            }
+
+        .code {
+            background-color: #10c694;
+            border-radius: 10px;
+            position: center;
+            text-align: left;
+            width: 900px;
+        }
+
+            .code p {
+                padding: 10px;
+            }
+
+        #loginBtn {
+            background-color: #04a10c;
+            border-width: 1.4px;
+            border-color: white;
+            color: white;
+            padding: 6px 22px;
+            margin-left: 900px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+
+        . #loginBtn:hover {
+            color: black;
+        }
+
+        .algorithm {
+            background-color: #7a902f;
+            border-radius: 10px;
+            position: center;
+            text-align: left;
+            width: 900px;
+            padding: 10px;
+        }
+        #usernameTextBox {
+            float: left;
+            padding: 11px 0 0 10px;
+            margin-top: 0;
+            
+        }
+        #passwordTextBox {
+            float: left;
+            padding: 11px 0 0 10px;
+            margin-top: 0;
+        }
+        #btnLogin{
+        background-color:#10c694;
+		color:white;
+        font-family: 'Microsoft Sans Serif';
+        font-size: 2.3em;		
+        text-align:center;
+        border-radius: 2%;
+		padding:10px 50px 10px 50px;	
+		text-decoration: none;
+        }
+        .loginPannel{
+            background-color: #36687a;
+            border-radius: 10px;
+            position: center;
+            text-align: left;
+            width: 900px;
+            padding: 10px;
+        }
+
+    .form-style-4{
+	    width: 95%;
+        height: 350px;
+	    font-size: 16px;
+	    background: green ;
+	    padding: 30px 30px 15px 30px;
+	    border: 5px solid #53687E;
+    }
+    .form-style-4 input[type=submit],
+    .form-style-4 input[type=button],
+    .form-style-4 input[type=text],
+    .form-style-4 input[type=email],
+    .form-style-4 textarea,
+    .form-style-4 label
+    {
+    	font-family: 'Microsoft Sans Serif';
+    	font-size: 18px;
+    	color: #fff;
+
+    }
+    
+    .form-style-4 label {
+	    display:block;
+	    margin-bottom: 20px;
+    }
+    .form-style-4 label > span{
+	    display: inline-block;
+	    float: left;
+	    width: 200px;
+    }
+    .form-style-4 input[type=text],
+    .form-style-4 input[type=email] 
+    {
+	    background: transparent;
+	    border: none;
+    	border-bottom: 1px dashed #83A4C5;
+	    width: 375px;
+	    outline: none;
+	    padding: 0px 0px 0px 0px;
+	    font-style:normal;
+    }
+    .form-style-4 textarea{
+    	font-style:normal;
+    	padding: 0px 0px 0px 0px;
+    	background: transparent;
+    	outline: none;
+    	border: none;
+	    border-bottom: 1px dashed #83A4C5;
+	    width: 375px;
+	    overflow: hidden;
+	    resize:none;
+	    height:20px;
+    }
+
+.form-style-4 textarea:focus, .form-style-4 input[type=text]:focus,
+.form-style-4 input[type=email]:focus,.form-style-4 input[type=email] :focus
+    {
+	    border-bottom: 1px dashed #D9FFA9;
+    }
+
+    .form-style-4 input[type=submit],.form-style-4 input[type=button]{
+	    background: #4CAF50;
+        width:250px;
+        text-align:center;
+	    border: none;
+        margin-left: 300px;
+	    padding: 10px 15px 10px 15px;
+	    border-radius: 2%;
+	    color: white;
+    }
+    .form-style-4 input[type=submit]:hover, .form-style-4 input[type=button]:hover{
+            background: #293d95;
+    }
+    </style>
+</head>
+<body>
+    <div id="container">
+
+        <div id="topbar">
+
+            <div class="fixedWidth">
+
+
+                
+            </div>
+
+
+            <!--This line of code, protects the above elements from the effect of float.-->
+            <div class="break"> </div>
+
+            <div id="newsbar">
+                <!--<div id="logo">
+                    <img src="E:\programs\Web\photos/Mercedes-Benz_Logo1.jpg" width="70" alt="Mercedes" />
+                </div>-->
+                <div id="name">
+                    Genetic Library
+                    <button id="loginBtn" onclick="location.href='../../login.html';">Login</button>
+					<input type="text" placeholder="Search" style="margin-top: 35px;margin-left: 1100px;"/>
+                </div>
+            </div>
+
+
+
+            <!--This line of code, protects the above elements from the effect of float.-->
+            <div class="break"> </div>
+
+            <div id="topicmenue">
+                <ul>
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="..\Selection\randomSelection.html">Selection Operators</a></li>
+                    <li><a href="..\Crossover\onePointCrossover.html">Crossover Operators</a></li>
+                    <li style="border: none"><a href="..\Mutation\bitFlipMutation.html">Mutation Operators</a></li>
+                </ul>
+            </div>
+
+
+
+
+        </div>
+        <!--This line of code, protects the above elements from the effect of float.-->
+        <div class="break"> </div>
+    </div>
+
+    <!--This line of code, protects the above elements from the effect of float.-->
+    <div class="break"> </div>
+
+    <div id="content">
+        <div id="leftSideBar">
+            <ul>
+                <li id="leftBarFirst">Crossover Operators</li>
+                <li><a href="onePointCrossover.html">One-point Crossover</a></li>
+                <li><a href="multiPointCrossover.html">Multi-point Crossover</a></li>
+                <li><a href="uniformCrossover.html">Uniform Crossover</a></li>
+                <li><a href="multiParentCrossover.html">Multi-parent Crossover</a></li>
+                <li><a href="orderCrossover.html">Order Crossover (ox)</a></li>
+                <li><a href="partiallyMappedCrossover.html">Partially Mapped Crossover (PMX)</a></li>
+                <li><a href="cycleCrossover.html">Cycle Crossover (CX)</a></li>
+                <li><a href="heuristicCrossover.html">Heuristic Crossover (HC)</a></li>
+                <li><a href="shuffleCrossover.html">Shuffle Crossover (SX)</a></li>
+                <li><a href="reduceSurragateCrossover.html">Reduce Surrogate  Crossover (RSX)</a></li>
+                <li><a href="averageCrossover.html">Average Crossover (AX)</a></li>
+                <li><a href="discreteCrossover.html">Discrete Crossover (DC)</a></li>
+                <li><a href="flatCrossover.html">Flat Crossover (FC)</a></li>
+                <li><a href="multivariateCrossover.html">Multivariate Crossover</a></li>
+                <li><a href="countPerservingCrossover.html">Count Preserving Crossover (CPC)</a></li>
+                <li><a href="modifiedOrderCrossover.html">Modified Order Crossover (MOC)</a></li>
+                <li><a href="randomRespectfulCrossover.html">Random Respectful Crossover (RRC)</a></li>
+                <li><a href="maskedCrossover.html">Masked Crossover</a></li>
+                <li><a href="oneBitAdaptiveCrossover.html">1-bit Adaptive Crossover (1BX)</a></li>
+                <li><a href="modifiedPartiallyMappedCrossover.html">Modified Partially Mapped Crossover (MPMX)</a></li>
+                <li><a href="orderBasedCrossover.html">Order Based Crossover (OBX)</a></li>
+                <li><a href="positionBasedCrossover.html">Position Based Crossover (POS)</a></li>
+                <li><a href="votingRecombinationCrossover.html">Voting Recombination Crossover (VR)</a></li>
+                <li><a href="maximalPerservationCrossover.html">Maximal Preservation Crossover (MPX)</a></li>
+                <li><a href="positionCrossover.html">Position Crossover (PX)</a></li>
+                <li><a href="homologousCrossover.html">Homologous Crossover (HX)</a></li>
+                <li><a href="completeSubtourExchangeCrossover.html">Complete Subtour Exchange Crossover (CSEX)</a></li>
+                <li><a href="edgeRecombinationCrossover.html">Edge Recombination Crossover (ER)</a></li>
+                <li><a href="alternateEdgesCrossover.html">Alternate Edges Crossover (AEX)</a></li>
+                <li id="leftSideBarSelected"><a href="heuristicUniformCrossover.html">Heuristic Uniform Crossover (HUX)</a></li>
+                <li><a href="blendCrossover.html">Blend Crossover (BLX)</a></li>
+                <li><a href="linearRecombinationCrossover.html">Linear Recombination Crossover</a></li>
+                <li><a href="directionalHeuristicCrossover.html">Directional Heuristic Crossover</a></li>
+                <li><a href="geometricalCrossover.html">Geometrical Crossover</a></li>
+                <li><a href="simulatedBinaryCrossover.html">Simulated Binary Crossover (SBX)</a></li>
+                <li><a href="hillclimbingCrossover.html">Hillclimbing Crossover</a></li>
+                <li><a href="arithmeticCrossover.html">Arithmetic Crossover</a></li>
+            </ul>
+        </div>
+
+        <div class="main">
+
+            <div class="topButtons">
+               <button id="btnPrev" onclick="window.location.href = 'https://w3docs.com';"style="padding-left: 30px;padding-right: 30px;padding-top: 3px;padding-bottom: 3px;margin-left: 1px;margin-right: 500px;">&lt; Previous</button>
+                <button id="btnNext" onclick="window.location.href = 'https://w3docs.com';"style="margin-left: 95px;margin-top: -66px;padding-left: 30px;padding-top: 3px;padding-bottom: 3px;padding-right: 30px;margin-right: 2px;">Next &gt;</button>
+            </div>
+
+            <div class="explain">
+                <h1>Heuristic Uniform Crossover (HUX)</h1>
+                <hr />
+                <!--explanation needs fixing-->
+                <p>
+                    In Heuristic uniform crossover we first copy the genes of parent one into the child one 
+                    and the genes of parent two into the child two. Then we loop over child two or parent 
+                    two and wherever the value of the Gene i for child one is not equal to the value of 
+                    the Gene i for child two, we produce a uniform random real number w in the interval 
+                    [0, 1] then we do the following for that gene: if w is less than or equal to 0.5, 
+                    then we swap the values for the Gene in two children which means we transfer the 
+                    gene from parent two to child one and from parent one to child two in that position. 
+                    Otherwise, no change will be made for the value of that gene in the children.
+                </p>
+            
+                <p>This is an example of how it works.</p>
+
+                <img src="../Images/one_point_crossover.png" /> <!--Should be replaced with the right image.-->
+
+                <div class="code">
+                    <p>Place for code</p>
+                    <p>Place for code</p>
+                    <p>Place for code</p>
+                    <p>Place for code</p>
+                    <p>Place for code</p>
+                    <p>Place for code</p>
+                </div>
+
+                <h4>Output:</h4>
+                <div class="codeOutput">
+                    <p>Place for code Output</p>
+                    <p>Place for code Output</p>
+                    <p>Place for code Output</p>
+                </div>
+
+                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="footer">
+        <ul>
+            <li><a href="..\Footer\AboutUs.html">About us</a></li>
+            <li><a href="..\Footer\cookiesPolicy.html">Cookies policy</a></li>
+            <li><a href="..\Footer\FAQ.html">FAQ's</a></li>
+            <li><a href="..\Footer\contribution.html">Contribution</a></li>
+            <li><a href="..\Footer\comment.html">Comment</a></li>
+        </ul>
+
+        <p> &copy;Copyright 2019. All rights Reserved.</p>
+    </div>
+    <!--We code java script in the end of body tag. then we move it to a seperate file like css -->
+    <script type="text/javascript">
+
+    </script>
+</body>
+</html>

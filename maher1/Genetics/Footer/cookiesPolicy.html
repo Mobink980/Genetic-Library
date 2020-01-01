@@ -1,0 +1,719 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Genetic Library</title>
+    <!--Attching css to the HTML file.-->
+    <link href="E:\programs\Visual Studio\Genetics.css" rel="stylesheet" type="text/css">
+    <style>
+         body {
+            margin: 0;
+            font-family: 'Times New Roman', Times, serif;
+            color: black;
+        }
+
+        /*#topbar {
+            width: 100%;
+            height: 50px;
+            background-color: #05031A;
+            color: white;
+        }*/
+
+
+
+        #logo {
+            float: left;
+            padding-top: 5px;
+            padding-left: 15px;
+            width: 20px;
+        }
+
+        #signin {
+            font-weight: bold;
+            font-size: 1.2em;
+            padding: 14px 80px 12px 80px;
+            float: left;
+            border-right: 1px solid #17173E;
+        }
+
+
+
+        .break {
+            clear: both;
+        }
+
+        #newsbar {
+             background-image: linear-gradient(green, rgb(0, 97, 24));
+            width: 100%;
+            height: 80px;
+            color: white;
+            padding-top: 16px;
+            padding-left: 13px;
+        }
+
+            #newsbar p {
+                margin: 0;
+                padding: 0;
+            }
+
+        #newsheader {
+            font-size: 3em;
+        }
+
+        #search {
+            padding: 10px 0 0 11px;
+        }
+
+            #search input {
+                height: 20px;
+                border: none;
+                font-size: 0.7em;
+                padding-left: 10px;
+                background-image: url("../photos/search_icon.jpg");
+                background-size: 22px;
+                background-repeat: no-repeat;
+                background-position: right center;
+            }
+
+        .selected {
+            background-color: #EDEDED;
+            color: #222223;
+            height: 30px;
+            position: relative;
+            top: 11px;
+            padding-top: 11px !important;
+        }
+
+        #content {
+            width: 100%;
+            color: #222222;
+            font-size: 0.75em;
+        }
+
+        .date {
+            font-weight: bold;
+        }
+
+        #newsitemheader {
+            padding-left: 10px;
+            color: #030411;
+            font-size: 2.5em;
+        }
+
+        #headingimage {
+            float: left;
+            width: 50%;
+        }
+
+        #newsitem {
+            position: relative;
+            float: left;
+            font-size: 1.3em;
+            width: 510px;
+            left: 10px;
+            top: -19px;
+            text-align: justify;
+        }
+
+            #newsitem a {
+                color: #1929AC;
+                text-decoration: none;
+                font-weight: bold;
+            }
+
+                #newsitem a:hover {
+                    text-decoration: underline;
+                }
+
+                #newsitem a:active {
+                    color: green;
+                    text-decoration: underline;
+                }
+
+        .video {
+            background-image: url("../photos/play.png");
+            background-repeat: no-repeat;
+            background-position: left center;
+            background-size: 15px;
+            padding-left: 20px;
+        }
+
+        .sound {
+            background-image: url("../photos/sound.png");
+            background-repeat: no-repeat;
+            background-position: left center;
+            background-size: 15px;
+            padding-left: 20px;
+        }
+
+        .links-lines {
+            line-height: 1.3em;
+        }
+
+        #watchlisten {
+            background-color: #252424;
+            float: right;
+            width: 400px;
+            height: 700px;
+            position: relative;
+            top: 10px;
+        }
+
+        #headerwatch {
+            color: #E8E8E8;
+            margin: 10px 0 10px 10px;
+            font-size: 1.8em;
+        }
+
+        #wlblock {
+            float: left;
+            background-color: #252424;
+        }
+
+            #wlblock img {
+                width: 300px;
+                height: 250px;
+                position: relative;
+                left: 50px;
+            }
+
+        #watchlisten a {
+            color: #E8E8E8;
+        }
+
+        #watchlisten ul {
+            margin: 0;
+            padding: 0 15px 10px 15px;
+        }
+
+        #watchlisten li {
+            list-style: none;
+            background-image: url("../photos/live.jpg");
+            background-repeat: no-repeat;
+            background-position: left center;
+            background-size: 20px;
+            padding: 6px 2px 2px 25px;
+            font-size: 1.2em;
+            text-align: justify;
+        }
+      
+        #topmenu a {
+            text-decoration: none;
+            color: white;
+        }
+
+            #topmenu a:hover {
+                color: #1458E1;
+            }
+
+        #topicmenue a {
+            text-decoration: none;
+            color: white;
+        }
+
+            #topicmenue a:hover {
+                color: #10c694
+            }
+
+        #topbar {
+            width: 100%;
+            height: 50px;
+            background-image: linear-gradient(green, rgb(0, 97, 24));
+            color: white;
+        }
+
+        #topmenu {
+            float: left;
+        }
+
+            #topmenu ul {
+                margin: 0;
+                padding: 0;
+            }
+
+            #topmenu li {
+                list-style: none;
+                float: left;
+                font-weight: bold;
+                font-size: 0.9em;
+                 background-image: linear-gradient(green, rgb(0, 97, 24));
+                height: 100%;
+                padding: 17px 20px 12px 20px;
+            }
+
+        #topicmenue {
+            text-align: center;
+        }
+
+            #topicmenue ul {
+                background-image: linear-gradient(rgb(0, 97, 24),black);
+                height: 35px;
+                width: 100%;
+                margin-top: 0;
+                padding: 8px 0 0 0;
+                font-size: 1.1em;
+            }
+
+            #topicmenue li {
+                list-style: none;
+                float: left;
+               
+                color: white;
+                padding: 0 10px;
+                border-right: 1px solid #10c694;
+            }
+
+        #leftSideBar ul {
+            list-style-type: none;
+            margin-top: 15px;
+            padding: 0;
+            width: 15%; /*the width from left of the screen*/
+            background-color: #f1f1f1;
+            position: absolute; /* Full height */
+            height: 400%; /* Make it stick, even on scroll */
+            overflow: scroll; /* Enable scrolling if the sidenav has too much content */
+        }
+
+        #leftSideBar li a {
+            display: block;
+            color: #000;
+            text-align: center;
+            font-size: 1.0em;
+            font-weight: bold;
+            font-family: 'Microsoft Sans Serif';
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+
+            #leftSideBar li a.active {
+                background-color: #4CAF50;
+                color: white;
+            }
+
+            #leftSideBar li a:hover:not(.active) {
+                background-color: #555;
+                color: white;
+            }
+
+        #leftBarFirst {
+            text-align: center;
+            font-size: 1.3em;
+            font-weight: bold;
+            color: white;
+            background-color: #10c694;
+            padding: 10px 0 10px 0;
+            font-family: 'Microsoft Sans Serif';
+        }
+
+        #leftSideBarSelected {
+            background-color: #6eb0af;
+        }
+
+        .main {
+            margin-left: 15%; /*the distance from left of the screen*/
+            padding: 1px 16px;
+            height: 1000px;
+        }
+
+        .footer {
+              position:absolute;
+		margin-bottom: -2020px;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 17%;
+            background-color: rgb(0, 97, 24);;
+            color: white;
+        }
+
+            .footer ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                text-align: center;
+                padding: 15px 0 15px 0; /*45px from top and 25px from bottom*/
+            }
+
+            .footer li {
+                display: inline;
+                margin-right: 40px;
+            }
+
+                .footer li a {
+                    text-decoration: none;
+                    color: white;
+                }
+
+            .footer p {
+                text-align: center;
+                color: white;
+            }
+
+            .footer a:hover {
+                color: #10c694;
+            }
+
+        .topButtons button {
+            background-color: #0a704e;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-style: none;
+            padding: 8px 21px;
+            margin-top: 33px;
+            margin-right: 500px;
+            border-radius: 4%;
+        }
+
+            .topButtons button:hover {
+                background-color: #10c694;
+            }
+
+        #name {
+            font-size: 3em;
+            font-weight: bold;
+            font-family: 'Microsoft Sans Serif';
+        }
+
+        .explain {
+            width: 1020px;
+            margin: 0 auto 0 5px;
+        }
+       
+            .explain p {
+                font-size: 1.5em;
+                font-family: 'Microsoft Sans Serif';
+            }
+
+            .explain h1 {
+                font-size: 2.4em;
+                font-weight: bolder;
+                font-family: 'Microsoft Sans Serif';
+            }
+
+            .explain h2 {
+                font-size: 2.1em;
+                font-weight: bold;
+                font-family: 'Microsoft Sans Serif';
+            }
+
+            .explain h3 {
+                font-size: 1.9em;
+                font-weight: bold;
+                font-family: 'Microsoft Sans Serif';
+            }
+
+            .explain h4 {
+                font-size: 1.7em;
+                font-weight: bold;
+                font-family: 'Microsoft Sans Serif';
+            }
+
+            .explain hr {
+                height: 8px;
+                border: 1px;
+                box-shadow: inset 0 9px 9px -3px #10c694;
+                border-radius: 5px;
+            }
+
+            .explain ul {
+                margin-top: 0;
+            }
+
+            .explain li {
+                font-size: 1.5em;
+                font-family: 'Microsoft Sans Serif';
+            }
+
+        .code {
+            background-color: #10c694;
+            border-radius: 10px;
+            position: center;
+            text-align: left;
+            width: 900px;
+        }
+
+            .code p {
+                padding: 10px;
+            }
+
+        #loginBtn {
+            background-color: #04a10c;
+            border-width: 1.4px;
+            border-color: white;
+            color: white;
+            padding: 6px 22px;
+            margin-left: 900px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+
+        . #loginBtn:hover {
+            color: black;
+        }
+
+        .algorithm {
+            background-color: #7a902f;
+            border-radius: 10px;
+            position: center;
+            text-align: left;
+            width: 900px;
+            padding: 10px;
+        }
+        #usernameTextBox {
+            float: left;
+            padding: 11px 0 0 10px;
+            margin-top: 0;
+            
+        }
+        #passwordTextBox {
+            float: left;
+            padding: 11px 0 0 10px;
+            margin-top: 0;
+        }
+        #btnLogin{
+        background-color:#10c694;
+		color:white;
+        font-family: 'Microsoft Sans Serif';
+        font-size: 2.3em;		
+        text-align:center;
+        border-radius: 2%;
+		padding:10px 50px 10px 50px;	
+		text-decoration: none;
+        }
+        .loginPannel{
+            background-color: #36687a;
+            border-radius: 10px;
+            position: center;
+            text-align: left;
+            width: 900px;
+            padding: 10px;
+        }
+
+    .form-style-4{
+	    width: 95%;
+        height: 350px;
+	    font-size: 16px;
+	    background: green ;
+	    padding: 30px 30px 15px 30px;
+	    border: 5px solid #53687E;
+    }
+    .form-style-4 input[type=submit],
+    .form-style-4 input[type=button],
+    .form-style-4 input[type=text],
+    .form-style-4 input[type=email],
+    .form-style-4 textarea,
+    .form-style-4 label
+    {
+    	font-family: 'Microsoft Sans Serif';
+    	font-size: 18px;
+    	color: #fff;
+
+    }
+    
+    .form-style-4 label {
+	    display:block;
+	    margin-bottom: 20px;
+    }
+    .form-style-4 label > span{
+	    display: inline-block;
+	    float: left;
+	    width: 200px;
+    }
+    .form-style-4 input[type=text],
+    .form-style-4 input[type=email] 
+    {
+	    background: transparent;
+	    border: none;
+    	border-bottom: 1px dashed #83A4C5;
+	    width: 375px;
+	    outline: none;
+	    padding: 0px 0px 0px 0px;
+	    font-style:normal;
+    }
+    .form-style-4 textarea{
+    	font-style:normal;
+    	padding: 0px 0px 0px 0px;
+    	background: transparent;
+    	outline: none;
+    	border: none;
+	    border-bottom: 1px dashed #83A4C5;
+	    width: 375px;
+	    overflow: hidden;
+	    resize:none;
+	    height:20px;
+    }
+
+.form-style-4 textarea:focus, .form-style-4 input[type=text]:focus,
+.form-style-4 input[type=email]:focus,.form-style-4 input[type=email] :focus
+    {
+	    border-bottom: 1px dashed #D9FFA9;
+    }
+
+    .form-style-4 input[type=submit],.form-style-4 input[type=button]{
+	    background: #4CAF50;
+        width:250px;
+        text-align:center;
+	    border: none;
+        margin-left: 300px;
+	    padding: 10px 15px 10px 15px;
+	    border-radius: 2%;
+	    color: white;
+    }
+    .form-style-4 input[type=submit]:hover, .form-style-4 input[type=button]:hover{
+            background: #293d95;
+    }
+
+        .images {
+            width: 500px;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+
+        <div id="topbar">
+
+            <div class="fixedWidth">
+
+
+               
+            </div>
+
+
+            <!--This line of code, protects the above elements from the effect of float.-->
+            <div class="break"> </div>
+
+            <div id="newsbar">
+                <!--<div id="logo">
+            <img src="E:\programs\Web\photos/Mercedes-Benz_Logo1.jpg" width="70" alt="Mercedes" />
+        </div>-->
+                <div id="name">
+                    Genetic Library
+                    <button id="loginBtn" onclick="location.href='../../login.html';">Login</button>
+					<input id="search" type="text" placeholder="Search" style="margin-left: 1100px;margin-top: 35px;"/>
+                </div>
+            </div>
+
+
+
+            <!--This line of code, protects the above elements from the effect of float.-->
+            <div class="break"> </div>
+
+            <div id="topicmenue">
+                <ul>
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="..\Selection\randomSelection.html">Selection Operators</a></li>
+                    <li><a href="..\Crossover\onePointCrossover.html">Crossover Operators</a></li>
+                    <li style="border: none"><a href="..\Mutation\bitFlipMutation.html">Mutation Operators</a></li>
+                </ul>
+            </div>
+
+
+
+
+        </div>
+        <!--This line of code, protects the above elements from the effect of float.-->
+        <div class="break"> </div>
+    </div>
+
+    <!--This line of code, protects the above elements from the effect of float.-->
+    <div class="break"> </div>
+
+    <div id="content">
+        <div id="leftSideBar">
+            <ul>
+                <li id="leftBarFirst">Genetic Concepts</li>
+                <li id="leftSideBarSelected"><a href="../../index.html">Evolutionary Computation</a></li>
+                <li><a href="..\Concepts\typesOfOperators.html">Genetic Operators</a></li>
+                <li><a href="..\Concepts\chromosomeRepresentation.html">Chromosome Representation</a></li>
+            </ul>
+        </div>
+
+        <div class="main">
+
+
+
+            <div class="explain">
+                <h1>Cookies Ploicy</h1>
+                <hr />
+                <br />
+                <h2> What is a cookie policy?</h2>
+                <p>
+                    A cookie policy is a declaration to your users on what cookies are active on your website,
+                    what user data they track, for what purpose, and where in the world this data is sent.
+                    Also, a cookie policy should contain information on how your users may opt out of the cookies
+                    or change their settings in regard to the cookies on your website.
+                    Many website owners choose to incorporate the cookie policy as a section of their
+                    privacy policy. You can also leave your website cookie policy as a stand-alone section.
+                    Regardless, you are legally required to have one available to your users.
+                    The privacy policy is a document, usually a page on the website, in which all
+                    of the methods and purposes of the data processing activities on the site are
+                    outlined, including contact forms, mailing lists etc.
+                    Cookies are a potential privacy risk, because they are able to track, store and share user behaviour.
+                    Whereas most of the remaining privacy policy may be static, the cookies used on a
+                    website are dynamic and might change often. Therefore, an adequate cookie policy should
+                    be regularly updated to make sure that the information is accurate.
+                    How does the GDPR affect my cookie policy?
+                </p>
+                <p>
+                    The EU law on personal data, the General Data Protection Regulation (GDPR),
+                    gives website visitors the right to receive specific, up-to date information
+                    on what data is registered about them at all times, for what purpose, and where
+                    in the world it is sent (along with the possibility to prevent it from happening).
+                    These rules affect your cookie policy as well as your cookie notification,
+                    your cookie consent and your documentation of consents.
+                    Read more about the GDPR here.
+                </p>
+                <p>
+                    Read more about the ePrivacy Directive (EU cookie law or cookie directive) here.
+                    The law means that you need a proper cookie policy on your website,
+                    containing specific, accurate, and up to date information on the website's
+                    use of cookies and the users' options of accepting and rejecting them.
+                    Requirements for my cookie policy
+                    Your cookie policy should state:
+                    What types of cookies are set,
+                    How long they persist on your user’s browser,
+                    What data they track,
+                    For what purpose (functionality, performance, statistics, marketing, etc.),
+                </p>
+                <p>
+                    Where the data is sent and with whom it is shared,
+                    How to reject cookies, and how to subsequently change the status regarding the cookies.
+                </p>
+                <br /><br />
+
+                <img class="images" src="../Images/cookie.jpg" />
+                <br /><br /><br /><br /><br />
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="footer">
+        <ul>
+            <li><a href="..\Footer\AboutUs.html">About us</a></li>
+            <li><a href="..\Footer\cookiesPolicy.html">Cookies policy</a></li>
+            <li><a href="..\Footer\FAQ.html">FAQ's</a></li>
+            <li><a href="..\Footer\contribution.html">Contribution</a></li>
+            <li><a href="..\Footer\comment.html">Comment</a></li>
+        </ul>
+
+        <p> &copy;Copyright 2019. All rights Reserved.</p>
+    </div>
+    <!--We code java script in the end of body tag. then we move it to a seperate file like css -->
+    <script type="text/javascript">
+
+    </script>
+</body>
+</html>
