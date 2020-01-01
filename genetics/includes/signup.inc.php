@@ -1,8 +1,5 @@
 <?php
 
-
-
-
 /**Inside this, we only going to have php code to run when the user click the 
  * sign up button and also do some error handling. we don't have html code after our php tag
  * so we don't need to close the tag.
@@ -76,11 +73,12 @@
         exit();//stop the code from running. we don't want any of the following code run when a mistake happens
     }
 
-    else{ //if the username is already taken
+    else{ //if the username is already taken or email is already taken
         //go inside the database and check if any user matches the database
         //we need to use placeholders with question mark instead of just writing = $username
         //there are some really evil people out there who want to destroy our website and database
         $sql = "SELECT uidUsers FROM users WHERE uidUsers=?";
+        
         //create a prepared statement
         $stmt = mysqli_stmt_init($conn);
         //always check for errors first when you are writing a php code (rule of thumb)
@@ -96,6 +94,23 @@
             $resultCheck = mysqli_stmt_num_rows($stmt); //number of results we got from the database
             if($resultCheck > 0){ //if we have a matching for the username
                 header("Location: ../signup.php?error=usertaken&mail=".$email);
+                exit();//stop the code from running. we don't want any of the following code run when a mistake happens 
+            }
+
+            //go inside the database and check if the email matches any record in the database
+            $sql2 = "SELECT emailUsers FROM users WHERE emailUsers=?";
+            $stmt2 = mysqli_stmt_init($conn); //Initializes a statement and returns an object for use with mysqli_stmt_prepare
+            
+            if(!mysqli_stmt_prepare($stmt2, $sql2)){ //Prepare an SQL statement for execution
+                header("Location: ../signup.php?error=sqlerror");
+                exit();//stop the code from running. we don't want any of the following code run when a mistake happens
+            }
+            mysqli_stmt_bind_param($stmt2, "s", $email); //Binds variables to a prepared statement as parameters
+            mysqli_stmt_execute($stmt2); //execute the data from the user together with the sql statement
+            mysqli_stmt_store_result($stmt2);//Transfers a result set from a prepared statement
+            $resultCheck2 = mysqli_stmt_num_rows($stmt2); //number of results we got from the database (email matches)
+            if($resultCheck2 > 0){ //if we have a matching for the username
+                header("Location: ../signup.php?error=emailtaken&mail=".$email);
                 exit();//stop the code from running. we don't want any of the following code run when a mistake happens 
             }
             else{//we don't just put the information of the user. it's not safe. so we use placeholders
