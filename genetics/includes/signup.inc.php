@@ -1,4 +1,8 @@
 <?php
+
+
+
+
 /**Inside this, we only going to have php code to run when the user click the 
  * sign up button and also do some error handling. we don't have html code after our php tag
  * so we don't need to close the tag.
@@ -14,6 +18,11 @@
     $email = $_POST['mail'];
     $password = $_POST['pwd'];
     $passwordRepeat = $_POST['pwd-repeat'];
+
+    // checking for password strength of the user
+    $uppercase = preg_match('@[A-Z]@', $password);
+    $lowercase = preg_match('@[a-z]@', $password);
+    $number    = preg_match('@[0-9]@', $password);
 
     //before we put this into our website we need to do a bunch of error handling
     //you can write so many error handlers. here are some basics
@@ -46,6 +55,27 @@
         header("Location: ../signup.php?error=passwordcheck&uid=".$username."&mail=".$email);
         exit();//stop the code from running. we don't want any of the following code run when a mistake happens
     }
+    //if the password is less than 8 characters
+    else if(less_than_eight($password)){
+        header("Location: ../signup.php?error=passwordlessthan8&uid=".$username."&mail=".$email);
+        exit();//stop the code from running. we don't want any of the following code run when a mistake happens
+    }
+    //if the pasword does not have a capital letter
+    else if(!$uppercase){
+        header("Location: ../signup.php?error=passwordlackcapitalletter&uid=".$username."&mail=".$email);
+        exit();//stop the code from running. we don't want any of the following code run when a mistake happens
+    }
+    //if the password does not have a lowercase letter
+    else if(!$lowercase){
+        header("Location: ../signup.php?error=passwordlacklowercaseletter&uid=".$username."&mail=".$email);
+        exit();//stop the code from running. we don't want any of the following code run when a mistake happens
+    }
+    //if the password does not have a number
+    else if(!$number){
+        header("Location: ../signup.php?error=passwordlacknumber&uid=".$username."&mail=".$email);
+        exit();//stop the code from running. we don't want any of the following code run when a mistake happens
+    }
+
     else{ //if the username is already taken
         //go inside the database and check if any user matches the database
         //we need to use placeholders with question mark instead of just writing = $username
@@ -96,3 +126,13 @@
     header("Location: ../signup.php");
     exit();//stop the code from running. we don't want any of the following code run when a mistake happens 
  }
+
+
+//If the password is less than 8 characters then return to the signup page
+ function less_than_eight($pass){
+    if(strlen($pass) < 8)
+        return true;
+
+    return false;
+}
+
