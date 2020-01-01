@@ -27,6 +27,18 @@
         else if($_GET['error'] == "passwordcheck"){
             echo '<p class="signuperror">Your passwords does not match!</p>';
         }
+        else if($_GET['error'] == "passwordlessthan8"){
+            echo '<p class="signuperror">Your password should be at least 8 characters!</p>';
+        }
+        else if($_GET['error'] == "passwordlackcapitalletter"){
+            echo '<p class="signuperror">Your password should contain a capital letter!</p>';
+        }
+        else if($_GET['error'] == "passwordlacklowercaseletter"){
+            echo '<p class="signuperror">Your password should contain a lowercase letter!</p>';
+        }
+        else if($_GET['error'] == "passwordlacknumber"){
+            echo '<p class="signuperror">Your password should contain both alpha and numeric characters</p>';
+        }
         else if($_GET['error'] == "usertaken"){
             echo '<p class="signuperror">This username is already taken. Try something else!</p>';
         }
