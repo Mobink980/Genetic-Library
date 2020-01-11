@@ -90,11 +90,11 @@
                     echo '
                     <div class="footer">
                     <ul>
-                        <li><a href="file:///C:/Users/Maher/Desktop/maher/Genetics/Footer/AboutUs.html">About us</a></li>
-                        <li><a href="file:///C:/Users/Maher/Desktop/maher/Genetics/Footer/cookiesPolicy.html">Cookies policy</a></li>
-                        <li><a href="file:///C:/Users/Maher/Desktop/maher/Genetics/Footer/FAQ.html">FAQ</a></li>
-                        <li><a href="file:///C:/Users/Maher/Desktop/maher/Genetics/Footer/contribution.html">Contribution</a></li>
-                        <li><a href="file:///C:/Users/Maher/Desktop/maher/Genetics/Footer/comment.html">Comment</a></li>
+                        <li><a href="aboutus.php">About us</a></li>
+                        <li><a href="cookiepolicy.php">Cookies policy</a></li>
+                        <li><a href="faq.php">FAQ</a></li>
+                        <li><a href="contribution.php">Contribution</a></li>
+                        <li><a href="comment.php">Comment</a></li>
                     </ul>
                     <a id="go-up"  style="color:white; float:right; margin-right:35px;" role="button" class="btn btn-circle">top</a> 
                     <p> &copy;Copyright 2019. All rights Reserved.</p>
