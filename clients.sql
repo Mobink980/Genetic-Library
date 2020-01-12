@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 10, 2020 at 09:12 PM
+-- Generation Time: Jan 12, 2020 at 11:33 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -30,6 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `article` (
   `a_id` int(11) NOT NULL,
+  `a_group` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
   `a_title` varchar(256) NOT NULL,
   `a_text` text NOT NULL,
   `a_author` varchar(256) NOT NULL,
@@ -40,9 +41,13 @@ CREATE TABLE `article` (
 -- Dumping data for table `article`
 --
 
-INSERT INTO `article` (`a_id`, `a_title`, `a_text`, `a_author`, `a_date`) VALUES
-(1, '50 great summer recipes', 'There are many recipes you can create for the summer which involves grilling, boiling frying, and toasting.', 'Admin', '2017-11-25 12:23:11'),
-(2, 'A series of computer software', 'In this article, you will learn aboutsome of the software used on computers. This involves basic softwares used in computers and more advanced softwares used by developers.', 'Daniel Nielsen', '2017-11-25 12:23:11');
+INSERT INTO `article` (`a_id`, `a_group`, `a_title`, `a_text`, `a_author`, `a_date`) VALUES
+(1, 'AIS', '50 great summer recipes', 'There are many recipes you can create for the summer which involves grilling, boiling frying, and toasting.', 'Admin', '2017-11-25 12:23:11'),
+(2, 'AIS', 'A series of computer software', 'In this article, you will learn aboutsome of the software used on computers. This involves basic softwares used in computers and more advanced softwares used by developers.', 'Daniel Nielsen', '2017-11-25 12:23:11'),
+(3, 'AIS', 'Is there a function to print a Dataframe including texts that are not in English', 'I wanted to check whether Is there a function to print a Dataframe including texts that are not in English?', 'Mahdi Shadrooy', '2020-01-12 18:20:02'),
+(4, 'AIS', 'What is AIS', 'In this lecture we are going to talk about the artificial immune systems.', 'Maher Raslan', '2020-01-12 20:00:19'),
+(5, 'AIS', 'How to Find String Length in PHP', 'The strlen() is a built-in function in PHP which returns the length of a given string. It takes a string as a parameter and returns its length. It calculates the length of the string including all the whitespaces and special characters.\r\n\r\nSyntax:\r\n\r\nstrlen($string)\r\nParameters: The strlen() fucntion accepts only one parameter $string which is mandatory. This parameter represents the string whose length is needed to be returned.\r\n\r\n\r\n\r\n \r\n\r\nReturn Value: The fucntion returns the length of the $string including all the whitespaces and special characters.\r\n\r\nExamples:\r\n\r\nInput : \"abc\"\r\nOutput : 3\r\n\r\nInput : \"\\n chetna ;\"\r\nOutput : 10\r\nExplanation : \'\\n\' is considered as a single character\r\n              as it is an escape sequence.\r\n\r\nInput : \"geeks for geeks\" \r\nOutput :15\r\nBelow programs illustrate the strlen() function in PHP:\r\n\r\nProgram 1: The below program demonstrates the use of strlen() function in PHP.\r\n\r\nfilter_none\r\nedit\r\nplay_arrow\r\n\r\nbrightness_4\r\n<?php \r\n    // PHP program to find the  \r\n    // length of a given string  \r\n      \r\n    $str = \"geeks for geeks\"; \r\n      \r\n    // prints the length of the string  \r\n    // including the space  \r\n    echo strlen($str); \r\n?>  \r\nOutput:\r\n\r\n15\r\nProgram 2: The below program demonstrates the use of strlen() function in PHP where the string has special characters and escape sequences.', 'ChetnaAgarwal', '2020-01-12 20:43:58'),
+(6, 'EC', 'The length of a string in java', 'String Length() Method in Java with Example\r\nThis function is used to get the length of a Java String. The string length method returns the number of characters written in the String. This method returns the length of any string which is equal to the number of 16-bit Unicode characters in the string\r\n\r\nString Length in Java. String length returns the number of characters in a string.\r\nSyntax. int length = stringName.length();\r\nNotes. Spaces count as characters.\r\nExample. String name = \"Anthony\"; int nameLength = name.length(); System.out.println(\"The name \" + name + \" contains \" + nameLength + \"letters.\");\r\n\r\nThe length of a string is the number of characters in the string. Thus, \"cat\" has length 3, \"\" has length 0, and \"cat \" has length 4. Notice that spaces count in the length, but the double quotes do not. If we have escape sequences in the alphabet, then they count as one character.', 'Michel Kane', '2020-01-12 20:47:31');
 
 -- --------------------------------------------------------
 
@@ -156,7 +161,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `article`
 --
 ALTER TABLE `article`
-  MODIFY `a_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `a_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `files_of_clients`
