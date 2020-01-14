@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 4.6.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 12, 2020 at 11:33 PM
--- Server version: 10.4.10-MariaDB
--- PHP Version: 7.3.12
+-- Generation Time: Jan 14, 2020 at 09:28 PM
+-- Server version: 5.7.14
+-- PHP Version: 5.6.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -30,7 +28,6 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `article` (
   `a_id` int(11) NOT NULL,
-  `a_group` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
   `a_title` varchar(256) NOT NULL,
   `a_text` text NOT NULL,
   `a_author` varchar(256) NOT NULL,
@@ -41,13 +38,32 @@ CREATE TABLE `article` (
 -- Dumping data for table `article`
 --
 
-INSERT INTO `article` (`a_id`, `a_group`, `a_title`, `a_text`, `a_author`, `a_date`) VALUES
-(1, 'AIS', '50 great summer recipes', 'There are many recipes you can create for the summer which involves grilling, boiling frying, and toasting.', 'Admin', '2017-11-25 12:23:11'),
-(2, 'AIS', 'A series of computer software', 'In this article, you will learn aboutsome of the software used on computers. This involves basic softwares used in computers and more advanced softwares used by developers.', 'Daniel Nielsen', '2017-11-25 12:23:11'),
-(3, 'AIS', 'Is there a function to print a Dataframe including texts that are not in English', 'I wanted to check whether Is there a function to print a Dataframe including texts that are not in English?', 'Mahdi Shadrooy', '2020-01-12 18:20:02'),
-(4, 'AIS', 'What is AIS', 'In this lecture we are going to talk about the artificial immune systems.', 'Maher Raslan', '2020-01-12 20:00:19'),
-(5, 'AIS', 'How to Find String Length in PHP', 'The strlen() is a built-in function in PHP which returns the length of a given string. It takes a string as a parameter and returns its length. It calculates the length of the string including all the whitespaces and special characters.\r\n\r\nSyntax:\r\n\r\nstrlen($string)\r\nParameters: The strlen() fucntion accepts only one parameter $string which is mandatory. This parameter represents the string whose length is needed to be returned.\r\n\r\n\r\n\r\n \r\n\r\nReturn Value: The fucntion returns the length of the $string including all the whitespaces and special characters.\r\n\r\nExamples:\r\n\r\nInput : \"abc\"\r\nOutput : 3\r\n\r\nInput : \"\\n chetna ;\"\r\nOutput : 10\r\nExplanation : \'\\n\' is considered as a single character\r\n              as it is an escape sequence.\r\n\r\nInput : \"geeks for geeks\" \r\nOutput :15\r\nBelow programs illustrate the strlen() function in PHP:\r\n\r\nProgram 1: The below program demonstrates the use of strlen() function in PHP.\r\n\r\nfilter_none\r\nedit\r\nplay_arrow\r\n\r\nbrightness_4\r\n<?php \r\n    // PHP program to find the  \r\n    // length of a given string  \r\n      \r\n    $str = \"geeks for geeks\"; \r\n      \r\n    // prints the length of the string  \r\n    // including the space  \r\n    echo strlen($str); \r\n?>  \r\nOutput:\r\n\r\n15\r\nProgram 2: The below program demonstrates the use of strlen() function in PHP where the string has special characters and escape sequences.', 'ChetnaAgarwal', '2020-01-12 20:43:58'),
-(6, 'EC', 'The length of a string in java', 'String Length() Method in Java with Example\r\nThis function is used to get the length of a Java String. The string length method returns the number of characters written in the String. This method returns the length of any string which is equal to the number of 16-bit Unicode characters in the string\r\n\r\nString Length in Java. String length returns the number of characters in a string.\r\nSyntax. int length = stringName.length();\r\nNotes. Spaces count as characters.\r\nExample. String name = \"Anthony\"; int nameLength = name.length(); System.out.println(\"The name \" + name + \" contains \" + nameLength + \"letters.\");\r\n\r\nThe length of a string is the number of characters in the string. Thus, \"cat\" has length 3, \"\" has length 0, and \"cat \" has length 4. Notice that spaces count in the length, but the double quotes do not. If we have escape sequences in the alphabet, then they count as one character.', 'Michel Kane', '2020-01-12 20:47:31');
+INSERT INTO `article` (`a_id`, `a_title`, `a_text`, `a_author`, `a_date`) VALUES
+(1, '50 great summer recipes', 'There are many recipes you can create for the summer which involves grilling, boiling frying, and toasting.', 'Admin', '2017-11-25 12:23:11'),
+(2, 'A series of computer software', 'In this article, you will learn aboutsome of the software used on computers. This involves basic softwares used in computers and more advanced softwares used by developers.', 'Daniel Nielsen', '2017-11-25 12:23:11');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comments`
+--
+
+CREATE TABLE `comments` (
+  `comment_id` int(11) NOT NULL,
+  `parent_comment_id` int(11) NOT NULL,
+  `comment` text NOT NULL,
+  `comment_sender_name` varchar(255) NOT NULL,
+  `comment_sender_id` int(11) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`comment_id`, `parent_comment_id`, `comment`, `comment_sender_name`, `comment_sender_id`, `date`) VALUES
+(1, 0, 'salam!', 'mahdiSh', 11, '2020-01-14 21:17:54'),
+(2, 0, 'BYe', 'mahdiSh', 11, '2020-01-14 21:24:10');
 
 -- --------------------------------------------------------
 
@@ -76,6 +92,56 @@ INSERT INTO `files_of_clients` (`file_id`, `user_id`, `file_name`, `file_address
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `log_in`
+--
+
+CREATE TABLE `log_in` (
+  `id` int(20) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `age` varchar(3) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `log_in`
+--
+
+INSERT INTO `log_in` (`id`, `name`, `username`, `password`, `email`, `age`) VALUES
+(1, 'Ali', 'Bagheri', '45639', 'Bagheri@users.com', '24'),
+(2, 'Mahdi', 'Mousavi', '85426', 'Mousavi@users.com', '24'),
+(3, 'MohammadAli', '94122681004', '2561', 'yiuuo@yahoo.com', '24'),
+(4, 'Maher', 'MHPQ', 'sdfsdfs', 'sfdsfsdf@live.com', '25'),
+(5, 'Mohammad', 'Yousefi', '49785', 'Yousefi@users.com', '30'),
+(6, 'Ahmad', 'Mohammadi', '456789', 'Mohammadi@users.com', '50'),
+(7, 'Fatemeh', 'Poorreza', '15896', 'Poorreza@users.com', '45'),
+(8, 'Ali', 'Austin', '122', 'ahmad.gmail.com', NULL),
+(9, 'jane', 'Austin', '123', 'jane.gmail.com', NULL),
+(10, 'Carine', 'Austin', '1232', 'Carine.gmail.com', NULL),
+(11, 'Jean', 'Austin', '12452', 'Jean.gmail.com', NULL),
+(12, 'Peter', 'Austin', '12162', 'Peter.gmail.com', NULL),
+(13, 'Janine', 'Austin', '12142', 'Janine.gmail.com', NULL),
+(14, 'Jonas', 'Austin', '124162', 'Jonas.gmail.com', NULL),
+(15, 'Susan', 'Watson', '12492', 'Susan.gmail.com', NULL),
+(16, 'Roland', 'Watson', '122325', 'Roland.gmail.com', NULL),
+(17, 'Julie', 'Watson', '12112', 'Julie.gmail.com', NULL),
+(18, 'Diego', 'Watson', '12892', 'Diego.gmail.com', NULL),
+(19, 'Mary', 'Watson', '12782', 'Mary.gmail.com', NULL),
+(20, 'Eric', 'Holmes', '129642', 'Eric.gmail.com', NULL),
+(21, 'Jeff', 'Holmes', '12235', 'Jeff.gmail.com', NULL),
+(22, 'Kelvin', 'Holmes', '122145', 'Kelvin.gmail.com', NULL),
+(23, 'Wendy', 'Holmes', '122349', 'Wendy.gmail.com', NULL),
+(24, '', 'Ramin', '96874', 'Hosseini@gmail.com', ''),
+(25, 'Saghar', 'Saghar', '879512', 'saghar@users.com', '20'),
+(26, 'Reza', 'Reza98', '123456', 'Reza98@users.com', '43'),
+(28, '', 'mobink980', '74123', 'mobink980@outlook.com', ''),
+(29, 'asdfghj', 'frtyuui', '2581104554', 'madisdroy@gmail.com', '22'),
+(30, 'Ali', 'ghasem', '258', 'mahdishj@gmail.com', '45');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `pwdreset`
 --
 
@@ -92,7 +158,7 @@ CREATE TABLE `pwdreset` (
 --
 
 INSERT INTO `pwdreset` (`pwdResetId`, `pwdResetEmail`, `pwdResetSelector`, `pwdResetToken`, `pwdResetExpires`) VALUES
-(3, 'mobink980@gmail.com', '84d6211305b74dc0', '$2y$10$qAV57C.Ag1/Nd5T28s2QSuq0HH4hP2nDh7/1Ix9PE.RMNc25.qBhi', '1578244225');
+(2, 'mobink980@gmail.com', '29ab9c1a58dae4e4', '$2y$10$ihgAth3mZyWw4E6nXk.diODmW8NthgoD6fqRExo3VrmFHO5sWDqIO', '1577379556');
 
 -- --------------------------------------------------------
 
@@ -116,23 +182,21 @@ INSERT INTO `users` (`idUsers`, `uidUsers`, `emailUsers`, `pwdUsers`) VALUES
 (2, 'Mahdi323', 'mahdi323@outlook.com', '$2y$10$U3WQNJ7yzwGiZkNugZ6BSOoK/ZfJunjlZiO8ogmk4ogRrFnUtuQYu'),
 (3, 'Maher45', 'maher45@live.com', '$2y$10$iXmUqSMh0prtvrLuILakr.dTI9cGhA13bJ5D6Nwk0pSfrZAprg8KO'),
 (4, 'Saghar123', 'saghar123@yahoo.com', '$2y$10$ZegPXH8UlmocguWnhQjj7OkYzmCbCu1N210T.c.cE4snXFSPmSjmq'),
-(5, 'ghanbar23', 'ghanbar23@live.com', '$2y$10$.yY2DV1jGn6qTcE1TO3rXuGhczeSFsBfUWcJ5RNvAuBKlog8p4wbK'),
-(6, 'danni94', 'danni94@gmail.com', '$2y$10$hMNbVnRa.lOu/N2TkMH3XuMo4/ZSd4EyHmR1RYxPqiypJti/FYOz6'),
-(7, 'asghar45', 'asghar45@outlook.com', '$2y$10$5oNhnmFFu8Q9TWexckO/be4EXx31YIenoz79KYUpZjE5CQp26rxNe'),
-(8, 'mahsa523', 'mahsa523@gmail.com', '$2y$10$wnubx9/7UuVDzFW5Kl.EB.Aq13DbQvJRgwve5K0RO8WBDc/R6SpQm'),
-(9, 'asd', 'asd@gmail.com', '$2y$10$jDiXNclzxvtASvEZUsq9k.PpMhe2YwkYM474Hila5gDgfvvhhb69i'),
-(10, 'iop123', 'iop123@live.com', '$2y$10$OURpQDc.FAoUhrMjuCrFjuufi/F0fvslXiwNiQNLuJaL8PpFFohTu'),
-(11, 'Hamid', 'hamid98@gmail.com', '$2y$10$/CFnabqacqbLEHwClJy5jOVDacUtChJ.EgRvsWNXTeLBAT9TxZ3mC');
+(5, 'Ali1908', 'mah@gmail.com', '$2y$10$AfRvvL9RlwV3U/EY.tec2.j9vACW5JzO1gc3ZqOA.vxzsgqf.G8lW'),
+(7, 'mahdi8767', 'mahr@gmail.com', '$2y$10$Pof2.T3ttAbsgvor2hsJy.ZzMAVUAewQ.XJ6.lxBYuILu3TKlNKIi'),
+(8, 'mahdi876756', 'mahyui@gmail.com', '$2y$10$dgO7CSdjxRRhn.UmkOm1ieYikJ..XhXIDEYo38CftPQWB42caFE86'),
+(10, 'ghanbar12', 'ghanbar12@live.com', '$2y$10$i2fxqXt1oUt//U87JBwk.OeTRzLxsS0wF4NNGD1oFQKaOlSZptrSm'),
+(11, 'mahdiSh', 'mahdi97@gmail.com', '$2y$10$zGDtm.95iLcEH4i3RyEtu.OrDPU/6dRRqEYT495oKLhpD1tYl52jC');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `article`
+-- Indexes for table `comments`
 --
-ALTER TABLE `article`
-  ADD PRIMARY KEY (`a_id`);
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`comment_id`);
 
 --
 -- Indexes for table `files_of_clients`
@@ -140,6 +204,12 @@ ALTER TABLE `article`
 ALTER TABLE `files_of_clients`
   ADD PRIMARY KEY (`file_id`),
   ADD UNIQUE KEY `file_id` (`file_id`);
+
+--
+-- Indexes for table `log_in`
+--
+ALTER TABLE `log_in`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `pwdreset`
@@ -158,30 +228,30 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `article`
+-- AUTO_INCREMENT for table `comments`
 --
-ALTER TABLE `article`
-  MODIFY `a_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
+ALTER TABLE `comments`
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `files_of_clients`
 --
 ALTER TABLE `files_of_clients`
   MODIFY `file_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
+--
+-- AUTO_INCREMENT for table `log_in`
+--
+ALTER TABLE `log_in`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 --
 -- AUTO_INCREMENT for table `pwdreset`
 --
 ALTER TABLE `pwdreset`
-  MODIFY `pwdResetId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
+  MODIFY `pwdResetId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `idUsers` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-COMMIT;
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
