@@ -94,7 +94,7 @@
                         <li><a href="cookiepolicy.php">Cookies policy</a></li>
                         <li><a href="faq.php">FAQ</a></li>
                         <li><a href="contribution.php">Contribution</a></li>
-                        <li><a href="comment.php">Comment</a></li>
+                        <li><a href="../comment/comment.php">Comment</a></li>
                     </ul>
                     <a id="go-up"  style="color:white; float:right; margin-right:35px;" role="button" class="btn btn-circle">top</a> 
                     <p> &copy;Copyright 2019. All rights Reserved.</p>
