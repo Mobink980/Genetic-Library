@@ -17,7 +17,6 @@
    
    <form method="POST" id="comment_form">
     <div class="form-group">
-     <input type="text" name="comment_name" id="comment_name" class="form-control" placeholder="Enter Name" />
     </div>
     <div class="form-group">
      <textarea name="comment_content" id="comment_content" class="form-control" placeholder="Enter Comment" rows="5"></textarea>
