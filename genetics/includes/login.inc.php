@@ -8,7 +8,7 @@ if(isset($_POST['login-submit'])){
 
     //now we are gonna check if any of these fields were left empty
     if(empty($mailuid) || empty($password)){
-        header("Location: ../index.php?error=emptyfields");
+        header("Location: ../signin.php?error=emptyfields");
         exit();
     }
     //now we are gonna look if there is anyone with this username or password
@@ -16,7 +16,7 @@ if(isset($_POST['login-submit'])){
         $sql = "SELECT * FROM users WHERE uidUsers=? OR emailUsers=?;"; //allow username or email to login
         $stmt = mysqli_stmt_init($conn);
         if(!mysqli_stmt_prepare($stmt, $sql)){
-            header("Location: ../index.php?error=sqlerror");
+            header("Location: ../signin.php?error=sqlerror");
             exit();
         }
         else{
@@ -26,7 +26,7 @@ if(isset($_POST['login-submit'])){
             if($row = mysqli_fetch_assoc($result)){
                 $pwdCheck = password_verify($password, $row['pwdUsers']);
                 if($pwdCheck == false){
-                    header("Location: ../index.php?error=wrongpwd");
+                    header("Location: ../signin.php?error=wrongpwd");
                     exit();                    
                 }
                 else if($pwdCheck == true){
@@ -35,18 +35,18 @@ if(isset($_POST['login-submit'])){
                     //to do this we need to assure a session is started in all the pages of the website
                     $_SESSION['userId'] = $row['idUsers']; //defining the sessions
                     $_SESSION['userUid'] = $row['uidUsers'];
-                    header("Location: ../index.php?login=success");
+                    header("Location: ../indexprivilege.php");
                     exit(); 
                 }
             }
             else{ //if there were no results from the database
-                header("Location: ../index.php?error=nouser");
+                header("Location: ../signin.php?error=nouser");
                 exit();               
             }
         }
     }
 }
 else{ //in case a user got access to this page without clicking we get them back to the login page
-    header("Location: ../index.php");
+    header("Location: ../signin.php");
     exit();//stop the code from running. we don't want any of the following code run when a mistake happens     
 }
