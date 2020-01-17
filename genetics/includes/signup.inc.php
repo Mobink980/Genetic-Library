@@ -127,8 +127,28 @@
                     $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
                     mysqli_stmt_bind_param($stmt, "sss", $username, $email, $hashedPwd);
                     mysqli_stmt_execute($stmt); //execute the data from the user together with the sql statement
+                    
+                    //updating our profileimg table when a user signs up
+                    $sql = "SELECT * FROM users WHERE uidUsers='$username' AND emailUsers='$email'";
+                    $result = mysqli_query($conn, $sql);
+
+                    if(mysqli_num_rows($result) > 0){ //if the user exists in the user table
+                    while($row = mysqli_fetch_assoc($result)){ //getting the data from the user that we inserted into our database
+                    //we need to get its id. When we get its id, then we can insert a new row inside the profileimg table
+                    $userid = $row['idUsers'];
+                    $sql = "INSERT INTO profileimg (idUsers, status)  
+                    VALUES ('$userid', 1)"; // 1 means that the guy only signed up and he does not have a profile image yet
+                    mysqli_query($conn, $sql);
+
+                    //going back to front page
                     header("Location: ../signin.php?signup=success");
-                    exit();//stop the code from running. we don't want any of the following code run when a mistake happens                       
+                    exit();//stop the code from running. we don't want any of the following code run when a mistake happens  
+                 }
+
+                }else{
+                    echo "you have an error!";
+                }
+                     
                 }
             }
         }

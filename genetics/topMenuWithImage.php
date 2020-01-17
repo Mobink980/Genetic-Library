@@ -1,3 +1,7 @@
+<?php
+// session_start();
+include_once 'includes/dbh.inc.php';
+?>
 <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
 
@@ -117,13 +121,25 @@
 <!--when you have sensitive data, you gotta use post method, because with get method you can see everything in the url-->
             <div> <!--send the user to a php file, run a script to determine if the user has the right to login-->
                 <?php
-                    $username = $_SESSION['userUid'];
+
+                    $username = $_SESSION['userUid']; 
+                    $id = $_SESSION['userId'];
+                    $sqlImg = "SELECT * FROM profileimg WHERE idUsers='$id'";
+                    $resultImg = mysqli_query($conn, $sqlImg);
+                    $rowImg = mysqli_fetch_assoc($resultImg);
                     //will show the top menu in every page
                     echo '<div class="panel panel-top" >                     
                     <div class="top-menu">
                     <div id="title">
-                        Genetic Library  
-                        <img src="profile-pic.jpg" alt="A girl with blue shirt" class="img-circle profile-image">
+                        Genetic Library'; 
+                       
+                    if($rowImg['status'] == 0){ //this means we already uploaded an image
+                    //  mt_rand() helps us to load the image profile immediately after the user chooses the image. No needs for refreshing.
+                      echo  "<a href='uploadImageProfile.php'><img class='img-circle profile-image' src='uploads/profile".$id.".jpg?".mt_rand()."'></a>";
+                    }else{
+                        echo  "<a href='uploadImageProfile.php'><img class='img-circle profile-image' src='profile-pic.jpg'></a>";
+                    }
+                      echo '
                         <div class="break"></div>
                         <div class="below-profile-image">
                         <div>'.$username.'</div>
@@ -152,6 +168,10 @@
                     </div>
                     
                   </div>';
+
+
+
+
                 ?>
 
 
