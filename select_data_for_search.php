@@ -2,8 +2,9 @@
 /**Check whether a file with the name searched in search.php exists in the files_of_clients table*/
 //Initialize session data
 session_start();
+
 //Open a new connection to the MySQL server
-$conn = mysqli_connect("localhost", "root", "", "clients");
+$conn = mysqli_connect("localhost", "root", "951123357", "clients");
 // Check connection to MySql
 if ($conn -> connect_errno) {
     echo "Failed to connect to MySQL: " . $conn -> connect_error;

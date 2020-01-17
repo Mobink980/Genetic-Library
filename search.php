@@ -17,27 +17,30 @@
   <h1 align="center" class="page-header" id="head1">Search</h1>
   <div class="form-group">
     <!-- text box for searching-->
+	<form method="post" action="conector.php">
       <label for="txtFirstName">Search the file that you are looking for</label>
       <input type="text" id="filename" ng-model="filename" class="form-control" name="filename" />
-      <br/>
+      <input type="submit" class="btn btn-success btn-block" value="Search" ng-click="search()"/>     
+  	  <?php session_start(); $_SESSION["name"]= 'filename';   ?>
+	  </form>
+	  <br/>
       <!-- search button. search() method will be called when the button is clicked-->
-      <input type="button" class="btn btn-success btn-block" value="Search" ng-click="search()"/>     
-  </div>
-
-
+      </div>
   </div>
 
   <script>
+  
     var app = angular.module('myApp', []);
-    app.controller('cntrl', function ($scope, $http) {
+	app.controller('cntrl', function ($scope, $http) {
       $scope.search = function () { //posting the string written in the field as the filename
       if($scope.filename != null){ //assure that the user has written something for search 
         $http.post("select_data_for_search.php", { 'filename': $scope.filename })
           .success(function (data) {
             alert(data);
             $scope.filename = null;
+			window.location="conector.php";
           });
-          window.location="tableIndex.php"; //Change the page if search is valid
+          // window.location="tableIndex.php"; //Change the page if search is valid
       }
       else{//if the search field is empty
         alert('The search field is empty. Please write the name of the file that you are looking for.');
@@ -46,6 +49,7 @@
       }
 
     });
+	
   </script>
 </body>
 
