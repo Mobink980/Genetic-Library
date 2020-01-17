@@ -1,11 +1,11 @@
 <?php
 
 session_start();
-// $comment_name = $_SESSION["userUid"];
-// $comment_user_id = $_SESSION["userId"];
+$comment_name = $_SESSION["userUid"];
+$comment_user_id = $_SESSION["userId"];
 $section = 'EC';
-$comment_name = 'Mahdi';
-$comment_user_id =  '3';
+// $comment_name = 'Mahdi';
+// $comment_user_id =  '3';
 
 $connect = new PDO('mysql:host=localhost;dbname=clients', 'root', '');
 
