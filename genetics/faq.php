@@ -1,5 +1,11 @@
 <?php
-   require "topMenuWithLogin.php";
+session_start();
+if(isset($_SESSION['userId'])){
+   require "topMenuWithImage.php";
+
+}else{
+    require "topMenuWithLogin.php";
+}
 ?>
 
 <!DOCTYPE html>
@@ -343,5 +349,10 @@ for (i = 0; i < acc.length; i++) {
 </html>
 
 <?php
-    require "footer.php";
+if(isset($_SESSION['userId'])){
+    require "footerPrivilege.php";
+ 
+ }else{
+     require "footer.php";
+ }
 ?>

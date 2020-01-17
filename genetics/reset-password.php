@@ -1,4 +1,11 @@
 <?php
+session_start();
+if(isset($_SESSION['userId'])){
+   require "topMenuWithImage.php";
+
+}else{
+    require "topMenuWithLogin.php";
+}
 /**A token is a one time password that we create for a short period of time and we use that to authenticate 
  * that it was the user who wants to see the password. We are going to create a new table in the database 
  * that has these tokens in it. and when someone clicks on I forgot my password button, we are gonna 
@@ -38,3 +45,11 @@
     </div>
 </main>
 
+<?php
+if(isset($_SESSION['userId'])){
+    require "footerPrivilege.php";
+ 
+ }else{
+     require "footer.php";
+ }
+?>

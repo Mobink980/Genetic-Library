@@ -1,5 +1,11 @@
 <?php
-   require "topMenuWithLogin.php";
+session_start();
+if(isset($_SESSION['userId'])){
+   require "topMenuWithImage.php";
+
+}else{
+    require "topMenuWithLogin.php";
+}
 ?>
 
 <!DOCTYPE html>
@@ -197,7 +203,7 @@
 #btnPrev{
   padding: 3px 30px;
   margin-left: 1px;
-  margin-right: 700px;
+  margin-right: 600px !important;
   background-color: #32992E;
   color:white;
   border-radius: 2px;
@@ -575,5 +581,10 @@ function openCity(evt, cityName) {
 </html>
 
 <?php
-    require "footer.php";
+if(isset($_SESSION['userId'])){
+    require "footerPrivilege.php";
+ 
+ }else{
+     require "footer.php";
+ }
 ?>

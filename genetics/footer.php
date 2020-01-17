@@ -1,3 +1,8 @@
+<?php
+    // session_start();
+    //session_reset();
+    // echo 'Welcome back ', $_SESSION['userUid'] , '!';
+?>
 <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
 
@@ -86,20 +91,22 @@
 <!--when you have sensitive data, you gotta use post method, because with get method you can see everything in the url-->
             <div> <!--send the user to a php file, run a script to determine if the user has the right to login-->
                 <?php
-                    //will show the bottom menu in every page
+                //will show the bottom menu in every page
                     echo '
                     <div class="footer">
                     <ul>
                         <li><a href="aboutus.php">About us</a></li>
                         <li><a href="cookiepolicy.php">Cookies policy</a></li>
                         <li><a href="faq.php">FAQ</a></li>
-                        <li><a href="contribution.php">Contribution</a></li>
-                        <li><a href="../comment/comment.php">Comment</a></li>
+                        <li><a href="signin.php">Contribution</a></li>
+                        <li><a href="signin.php">Contact</a></li>
                     </ul>
                     <a id="go-up"  style="color:white; float:right; margin-right:35px;" role="button" class="btn btn-circle">top</a> 
                     <p> &copy;Copyright 2019. All rights Reserved.</p>
                 </div>
                ';
+
+
                 ?>
 
 
@@ -109,6 +116,21 @@
         <!--We code java script in the end of body tag. then we move it to a seperate file like css -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script type="text/javascript">
+    $(document).ready(function(){
+
+$('#myBtn').click(function(){
+
+    if(window.location.href == "http:// ...."){ //used to find the current page location 
+        location.href = "#abc"; //at the bottom of page
+    }
+    else{
+        location.href = "http:// .... ";//the next page you want to take the user to
+    }
+
+});
+
+});
+
 jQuery(document).ready(function() {
   
   var btn = $('#go-up');

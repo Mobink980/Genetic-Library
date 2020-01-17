@@ -1,5 +1,11 @@
 <?php
+session_start();
+if(isset($_SESSION['userId'])){
    require "topMenuWithImage.php";
+
+}else{
+    require "topMenuWithLogin.php";
+}
 ?>
 
 <!DOCTYPE html>
@@ -262,5 +268,10 @@
 </html>
 
 <?php
-    require "footer.php";
+if(isset($_SESSION['userId'])){
+    require "footerPrivilege.php";
+ 
+ }else{
+     require "footer.php";
+ }
 ?>

@@ -11,6 +11,7 @@ if(isset($_POST['login-submit'])){
         header("Location: ../signin.php?error=emptyfields");
         exit();
     }
+
     //now we are gonna look if there is anyone with this username or password
     else{ //we need to use placeholders in order to have a secure system
         $sql = "SELECT * FROM users WHERE uidUsers=? OR emailUsers=?;"; //allow username or email to login
@@ -22,7 +23,7 @@ if(isset($_POST['login-submit'])){
         else{
             mysqli_stmt_bind_param($stmt, "ss", $mailuid, $mailuid);
             mysqli_stmt_execute($stmt);
-            $result = mysqli_stmt_get_result($stmt);//get he result from the statement
+            $result = mysqli_stmt_get_result($stmt);//get the result from the statement
             if($row = mysqli_fetch_assoc($result)){
                 $pwdCheck = password_verify($password, $row['pwdUsers']);
                 if($pwdCheck == false){
@@ -35,7 +36,7 @@ if(isset($_POST['login-submit'])){
                     //to do this we need to assure a session is started in all the pages of the website
                     $_SESSION['userId'] = $row['idUsers']; //defining the sessions
                     $_SESSION['userUid'] = $row['uidUsers'];
-                    header("Location: ../indexprivilege.php");
+                    header("Location: ../index.php");
                     exit(); 
                 }
             }

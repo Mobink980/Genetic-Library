@@ -27,7 +27,7 @@
         border:1.7px solid white;
       }
       .profile-image{
-          width: 85px;
+          width: 85px ;
           height: 85px;
           float: right;
           margin-right:100px;
@@ -58,7 +58,7 @@
         }
         .search-top{
             width: 25%;
-            margin-right: 300px;
+            margin-right: 360px;
             margin-bottom: 0px;
             float: right;
         }
@@ -117,19 +117,17 @@
 <!--when you have sensitive data, you gotta use post method, because with get method you can see everything in the url-->
             <div> <!--send the user to a php file, run a script to determine if the user has the right to login-->
                 <?php
+                    $username = $_SESSION['userUid'];
                     //will show the top menu in every page
                     echo '<div class="panel panel-top" >                     
-                
-
-
                     <div class="top-menu">
                     <div id="title">
                         Genetic Library  
                         <img src="profile-pic.jpg" alt="A girl with blue shirt" class="img-circle profile-image">
                         <div class="break"></div>
                         <div class="below-profile-image">
-                        <div>Jennifer White</div>
-                        <a href="#" class="link">Sign out</a>
+                        <div>'.$username.'</div>
+                        <a href="includes/logout.inc.php" class="link">Sign out</a>
                         </div>
                                            
                     </div>                   
@@ -149,6 +147,7 @@
                     <li><a href="randomSelection.php">Selection</a></li>
                     <li><a href="onePointCrossover.php">Crossover</a></li>
                     <li><a href="bitFlipMutation.php">Mutation</a></li>
+                    <li><a href="forum.php">Computational Intelligence Forum</a></li>
                     </ul>
                     </div>
                     

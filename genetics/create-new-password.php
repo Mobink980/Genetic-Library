@@ -1,4 +1,11 @@
 <?php
+session_start();
+if(isset($_SESSION['userId'])){
+   require "topMenuWithImage.php";
+
+}else{
+    require "topMenuWithLogin.php";
+}
 /**In this file we are gonna write the code that allow the user to change their password inside our website.
  */
 ?>
@@ -45,3 +52,11 @@
     </div>
 </main>
 
+<?php
+if(isset($_SESSION['userId'])){
+    require "footerPrivilege.php";
+ 
+ }else{
+     require "footer.php";
+ }
+?>

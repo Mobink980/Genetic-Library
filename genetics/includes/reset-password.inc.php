@@ -106,5 +106,5 @@ if(isset($_POST["reset-password-submit"])){//check if the user got to this page 
     }
 
 } else{ //if the user got to this page illegally, send them back to the front page
-    header("Location: ../index.php");
+    header("Location: ../signin.php");
 }

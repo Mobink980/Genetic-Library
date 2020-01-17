@@ -127,7 +127,7 @@
                     $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
                     mysqli_stmt_bind_param($stmt, "sss", $username, $email, $hashedPwd);
                     mysqli_stmt_execute($stmt); //execute the data from the user together with the sql statement
-                    header("Location: ../index.php?signup=success");
+                    header("Location: ../signin.php?signup=success");
                     exit();//stop the code from running. we don't want any of the following code run when a mistake happens                       
                 }
             }

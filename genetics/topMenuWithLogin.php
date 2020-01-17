@@ -128,6 +128,7 @@
                     <li><a href="randomSelection.php">Selection</a></li>
                     <li><a href="onePointCrossover.php">Crossover</a></li>
                     <li><a href="bitFlipMutation.php">Mutation</a></li>
+                    <li><a href="signin.php">Computational Intelligence Forum</a></li>
                     </ul>
                     </div>
                     
