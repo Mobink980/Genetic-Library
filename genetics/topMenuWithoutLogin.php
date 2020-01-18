@@ -102,11 +102,14 @@
                     <div id="title">
                         Genetic Library                       
                     </div>                   
-                
-                        <div class="input-group search-top">
-                            <input type="text" class="form-control" name="search-place" placeholder="Search" />
-                            <div class="input-group-addon btn btn-success search-btn"><span class="glyphicon glyphicon-search"></span></div>
-                        </div>
+
+                    <form action="page_search.php" method="POST" class="input-group search-top">
+                       
+                            <input type="text" class="form-control" name="search" placeholder="Search" />
+                            <div class="input-group-addon btn btn-success " name="submit-search"><span class="glyphicon glyphicon-search"></span></div>
+                            <input type="submit" name="submit-search" />
+                    </form>
+
                     </div>
 
                     <!--This line of code, protects the above elements from the effect of float.-->
