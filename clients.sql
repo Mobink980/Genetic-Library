@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 14, 2020 at 09:28 PM
+-- Generation Time: Jan 18, 2020 at 03:40 PM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -163,6 +163,29 @@ INSERT INTO `pwdreset` (`pwdResetId`, `pwdResetEmail`, `pwdResetSelector`, `pwdR
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `search`
+--
+
+CREATE TABLE `search` (
+  `page_id` int(11) NOT NULL,
+  `page_title` varchar(255) NOT NULL,
+  `key_words` text NOT NULL,
+  `page_url` varchar(255) NOT NULL,
+  `page_like` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `search`
+--
+
+INSERT INTO `search` (`page_id`, `page_title`, `key_words`, `page_url`, `page_like`) VALUES
+(1, 'Evolutionary Computation', 'Evolutionary Lamark Darwin Genotype Phenotype Fitness Selection pressure competitive', 'index.php', 0),
+(2, 'Genetic Operators', 'Selection\r\n    Recombination\r\n    Mutation\r\n    Parent selection\r\n    replacement strategy\r\n    offspring \r\n    combination \r\n    Asexual\r\n    Sexual\r\n    Multi-recombination\r\n    Population size    \r\n    Mutation rate\r\n    Crossover rate\r\n    stop\r\n    Gap\r\n    Elitism\r\n    Conservative ', 'typesOfOperators.php', 0),
+(3, 'Chromosome Representation', 'chromosome \r\n    binary \r\n    floating-point\r\n    TSP\r\n    Two-dimensional', 'chromosomeRepresentation.php', 0);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -218,6 +241,12 @@ ALTER TABLE `pwdreset`
   ADD PRIMARY KEY (`pwdResetId`);
 
 --
+-- Indexes for table `search`
+--
+ALTER TABLE `search`
+  ADD PRIMARY KEY (`page_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -247,6 +276,11 @@ ALTER TABLE `log_in`
 --
 ALTER TABLE `pwdreset`
   MODIFY `pwdResetId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `search`
+--
+ALTER TABLE `search`
+  MODIFY `page_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `users`
 --
