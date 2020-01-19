@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<style>
+table, th , td  {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+}
+table tr:nth-child(odd) {
+  background-color: #f1f1f1;
+}
+table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<body>
+ 
+<div ng-app="myApp" ng-controller="customersCtrl">
+ 
+<table>
+  <tr ng-repeat="x in files">
+    <td>{{ x.id }}</td>
+    <td>{{ x.address}}</td>
+    <td>{{ x.name }}</td>
+  </tr>
+</table>
+<!--<p>{{files}}</p>!-->
+ 
+</div>
+ 
+<script>
+var app = angular.module('myApp', []);
+app.controller('customersCtrl', function($scope, $http) {
+   $http.get("conector.php")
+   .then(function (response) {$scope.files = response.data.records;});
+});
+</script>
+ 
+</body>
+</html>

@@ -232,6 +232,10 @@ if(isset($_SESSION['userId'])){
             font-size: 0.9em;
         }
 
+    #like{
+    float: right;
+    margin-top: 300px;
+    }
 </style>
 <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -271,6 +275,17 @@ if(isset($_SESSION['userId'])){
                     and same individual may take part in producing more than one offspring.
 
                 </p>
+
+                <?php
+    
+    include 'includes/dbh.inc.php';
+    $page_id = 2; //get the page_id from the url (change)
+    $sql = "SELECT * FROM search WHERE page_id= '$page_id'";           
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+    $number = $row['page_like'];//(change)
+    echo '<a href="increaseLike.php?pageid=2" class="btn btn-success" id ="like"><span class="glyphicon glyphicon-thumbs-up"></span> <span class="badge" id = "num">'.$number.'</span></a>'; 
+      ?>
                 <h2>Main driving operators in genetic algorithm</h2>
                 <ul>
                     <li>Selection, to model survival of the fittest.</li>

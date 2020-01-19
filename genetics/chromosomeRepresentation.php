@@ -710,6 +710,11 @@ if(isset($_SESSION['userId'])){
     width: 75%;
     height: 23%;
 }
+
+#like{
+    float: right;
+    margin-top: 300px;
+}
 </style>
 <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -758,7 +763,18 @@ if(isset($_SESSION['userId'])){
                     <li>Binary representation: in binary representation, each gene in the chromosome can be either 0 or 1.</li>
                 </ul>
 
+
 <img class="image-view" src="Genetics/Genetic pictures/Representation/binary.png" alt="Binary Representation"/> 
+<?php
+    
+    include 'includes/dbh.inc.php';
+    $page_id = 3; //get the page_id from the url (change)
+    $sql = "SELECT * FROM search WHERE page_id= '$page_id'";           
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+    $number = $row['page_like'];//(change)
+    echo '<a href="increaseLike.php?pageid=3" class="btn btn-success" id ="like"><span class="glyphicon glyphicon-thumbs-up"></span> <span class="badge" id = "num">'.$number.'</span></a>'; 
+      ?>
 <div class="code">
   <button class="codelinks active" onclick="openCity(event, 'Java')">Java</button>
   <button class="codelinks" onclick="openCity(event, 'Python')">Python</button>
