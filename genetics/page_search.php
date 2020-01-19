@@ -21,8 +21,9 @@ if(isset($_POST['submit-search'])){
     if($queryResult > 0){           
         while($row = mysqli_fetch_assoc($result)){
             $tmp = $row['page_url'];
+            $finaltemp = 'http://localhost/Genetic-Library/genetics/'.$tmp;
             echo"<h4>";
-            echo "<a href='$tmp'>";
+            echo "<a href='$finaltemp'>";
             echo $row['page_title'];
             echo"</a>";
             echo"</h4>";

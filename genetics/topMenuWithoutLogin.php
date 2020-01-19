@@ -11,6 +11,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <title></title>
 <style>
+
+
       .panel-top{
         background-image: linear-gradient(#35B135, #318F2B, #1B592A);
       }
@@ -37,11 +39,17 @@
             margin-right: 300px;
             margin-bottom: 0px;
             float: right;
+        }       
+
+        .search-field{
+            height:20px;
         }
+
         .search-btn{
             background-color:#33A531;
             color: white;
-            margin-bottom: 3px;
+            height:10px;
+
         }
         .search-btn:hover{
             background-color:#55C753;
@@ -85,6 +93,14 @@
           color: white;
           padding: 0 10px;  
         }
+
+        #innerbox
+{
+   width:30px; /* or whatever width you want. */
+   max-width:30px; /* or whatever width you want. */
+   display: inline-block;
+}
+ 
   </style>
 </head>
 
@@ -103,11 +119,16 @@
                         Genetic Library                       
                     </div>                   
 
-                    <form action="page_search.php" method="POST" class="input-group search-top">
-                       
-                            <input type="text" class="form-control" name="search" placeholder="Search" />
-                            <div class="input-group-addon btn btn-success " name="submit-search"><span class="glyphicon glyphicon-search"></span></div>
-                            <input type="submit" name="submit-search" />
+
+                    
+                    <form action="page_search.php" method="POST" >
+                      <div class="input-group input-group-md search-top"> 
+                            <input type="text" class="form-control search-field" name="search" placeholder="Search" />
+                           <div id="innerbox" class= "input-group-addon search-btn">
+                           <span class="glyphicon glyphicon-search"></span>
+                            <button class="btn btn-success " id="btn" type="submit" name="submit-search" ></button>
+                        </div> 
+                            </div>
                     </form>
 
                     </div>
