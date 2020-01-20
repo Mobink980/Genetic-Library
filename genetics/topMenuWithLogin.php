@@ -11,8 +11,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <title></title>
 <style type = "text/css">
-      /* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 450px) {
+         /* Extra small devices (phones, 600px and down) */
+      @media only screen and (max-width: 450px) {
   .panel-top{
         background-image: linear-gradient(#35B135, #318F2B, #1B592A);
       }
@@ -98,6 +98,21 @@
           color: white;
           padding: 0 4px;  
         }
+
+        .profile-image{
+          width: 85px ;
+          height: 85px;
+          float: right;
+          margin-right:80px;
+      }
+      .below-profile-image{
+        float: right;
+        text-align: center;
+        margin-right:100px;
+        font-size: 12px;
+        font-weight:600;
+        margin-top: 5px;
+      }
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -188,6 +203,21 @@
           color: white;
           padding: 0 2px;  
         }
+
+        .profile-image{
+          width: 85px ;
+          height: 85px;
+          float: right;
+          margin-right:30px;
+      }
+      .below-profile-image{
+        float: right;
+        text-align: center;
+        margin-right:48px;
+        font-size: 12px;
+        font-weight:600;
+        margin-top: 5px;
+      }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -278,6 +308,21 @@
           color: white;
           padding: 0 4px;  
         }
+
+        .profile-image{
+          width: 85px ;
+          height: 85px;
+          float: right;
+          margin-right:50px;
+      }
+      .below-profile-image{
+        float: right;
+        text-align: center;
+        margin-right:70px;
+        font-size: 12px;
+        font-weight:600;
+        margin-top: 5px;
+      }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -368,6 +413,21 @@
           color: white;
           padding: 0 10px;  
         }
+
+        .profile-image{
+          width: 85px ;
+          height: 85px;
+          float: right;
+          margin-right:80px;
+      }
+      .below-profile-image{
+        float: right;
+        text-align: center;
+        margin-right:100px;
+        font-size: 12px;
+        font-weight:600;
+        margin-top: 5px;
+      }
 } 
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -457,6 +517,21 @@
           color: white;
           padding: 0 10px;  
         }
+
+        .profile-image{
+          width: 85px ;
+          height: 85px;
+          float: right;
+          margin-right:80px;
+      }
+      .below-profile-image{
+        float: right;
+        text-align: center;
+        margin-right:100px;
+        font-size: 12px;
+        font-weight:600;
+        margin-top: 5px;
+      }
 } 
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
@@ -546,8 +621,22 @@
           color: white;
           padding: 0 10px;  
         }
-}
 
+        .profile-image{
+          width: 85px ;
+          height: 85px;
+          float: right;
+          margin-right:80px;
+      }
+      .below-profile-image{
+        float: right;
+        text-align: center;
+        margin-right:100px;
+        font-size: 12px;
+        font-weight:600;
+        margin-top: 5px;
+      }
+}
 
 
   </style>
