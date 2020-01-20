@@ -12,6 +12,10 @@ if(isset($_SESSION['userId'])){
 <html lang="en">
 
 <style>
+    #like{
+    float: right;
+    margin-top: 300px;
+}
    #leftSideBar ul {
             list-style-type: none;
             margin-top: -91px;
@@ -315,6 +319,16 @@ if(isset($_SESSION['userId'])){
                 <p>This is an example of how it works.</p>
 
 <img class="image-view" src="Genetics/Genetic pictures/Crossover/arithmetic_crossover.png" alt="Binary Representation"/> 
+<?php
+    
+    include 'includes/dbh.inc.php';
+    $page_id = 52; //get the page_id from the url
+    $sql = "SELECT * FROM search WHERE page_id= '$page_id'";           
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+    $number = $row['page_like'];
+    echo '<a href="increaseLike.php?pageid=52" class="btn btn-success" id ="like"><span class="glyphicon glyphicon-thumbs-up"></span> <span class="badge" id = "num">'.$number.'</span></a>'; 
+      ?>
 <div class="code">
   <button class="codelinks active" onclick="openCity(event, 'Python')">Python</button>
   <button class="codelinks" onclick="openCity(event, 'Java')">Java</button>

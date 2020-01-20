@@ -3,11 +3,15 @@
 ?>
 <!--search.php is the search file that we are going to load up with all the search results.
 we need to make sure that no article in the database has the same title or the same date.-->
+<link href="../bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+<main class="container">
+    <br>
 <form action="search.php" method="POST">
-    <input type="text" name="search" placeholder="Search">
-    <button type="submit" name="submit-search">Search</button>
+    <input type="text" name="search" placeholder="Search" class="form-control"> <br>
+    <button type="submit" name="submit-search" class="btn btn-primary btn-block">Search</button>
 </form>
 
+<a href="../index.php" style="float: right;  margin-top:20px;" class="btn btn-warning">Back to the Website</a>
 <h1>Front page</h1>
 <h2>All articles</h2>
 
@@ -31,6 +35,7 @@ we need to make sure that no article in the database has the same title or the s
         }
     }
 ?>
+</main>
 </div>
 </body>
 </html>

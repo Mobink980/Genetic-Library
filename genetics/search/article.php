@@ -2,13 +2,14 @@
     include 'header.php';
 ?>
 
-
+<link href="../bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+<main class="container">
 <h1>Article page</h1>
 
 <!--The following div tag will contain all the articles that we have in the database.-->
 <div class="article_container">
 <?php
-
+    echo '<a href="../index.php" style="float: right;  margin-top:20px;" class="btn btn-warning">Back to the Website</a>';
     $title = mysqli_real_escape_string($conn, $_GET['title']);
     $date = mysqli_real_escape_string($conn, $_GET['date']);
 
@@ -29,6 +30,8 @@
         }
     }
 ?>
+
+</main>
 </div>
 </body>
 </html>

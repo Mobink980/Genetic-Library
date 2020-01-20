@@ -232,6 +232,10 @@ if(isset($_SESSION['userId'])){
             font-size: 0.9em;
         }
 
+    #like{
+    float: right;
+    margin-top: 300px;
+}
 </style>
 <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
@@ -307,6 +311,16 @@ if(isset($_SESSION['userId'])){
                 <p>This is an example for how it works.</p>
 
 <img class="image-view" src="Genetics/Genetic pictures/Crossover/cycle_crossover.png" alt="Cycle Crossover (CX)"/> 
+<?php
+    
+    include 'includes/dbh.inc.php';
+    $page_id = 22; //get the page_id from the url
+    $sql = "SELECT * FROM search WHERE page_id= '$page_id'";           
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+    $number = $row['page_like'];
+    echo '<a href="increaseLike.php?pageid=22" class="btn btn-success" id ="like"><span class="glyphicon glyphicon-thumbs-up"></span> <span class="badge" id = "num">'.$number.'</span></a>'; 
+      ?>
 <div class="code">
   <button class="codelinks active" onclick="openCity(event, 'Python')">Python</button>
   <button class="codelinks" onclick="openCity(event, 'Java')">Java</button>

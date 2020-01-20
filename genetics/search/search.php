@@ -1,12 +1,14 @@
 <?php 
     include 'header.php'; //getting the database connection and the link to the style sheet
 ?>
-
+<link href="../bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+<main class="container">
 <h1>Search Page</h1>
 
 <div class='article_container'>
 <?php
     if(isset($_POST['submit-search'])){
+        echo '<a href="../index.php" style="float: right;  margin-top:20px;" class="btn btn-warning">Back to the Website</a>';
         $search = mysqli_real_escape_string($conn, $_POST['search']);       
         //searching everything inside the article table against what the user typed in the search field.
         $sql = "SELECT * FROM article WHERE a_title LIKE '%$search%' OR a_text LIKE '%$search%' OR a_author LIKE '%$search%' 
@@ -34,4 +36,5 @@
         header("Location index.php");
     }
 ?>
+</main>
 </div>

@@ -678,10 +678,15 @@ include_once 'includes/dbh.inc.php';
                                            
                     </div>                   
                     
-                        <div class="input-group search-top">
-                            <input type="text" class="form-control" name="search-place" placeholder="Search" />
-                            <div class="input-group-addon btn btn-success search-btn"><span class="glyphicon glyphicon-search"></span></div>
-                        </div>
+                    <form action="page_search.php" method="POST" >
+                    <div class="input-group input-group-md search-top"> 
+                          <input type="text" class="form-control search-field" name="search" placeholder="Search" />
+                         <div  class= "input-group-addon search-btn">
+                         <span class="glyphicon glyphicon-search"></span>
+                          <button class="btn btn-success " id="btn" type="submit" name="submit-search" ></button>
+                      </div> 
+                          </div>
+                  </form>
                     </div>
 
                     <!--This line of code, protects the above elements from the effect of float.-->
@@ -693,7 +698,8 @@ include_once 'includes/dbh.inc.php';
                     <li><a href="randomSelection.php">Selection</a></li>
                     <li><a href="onePointCrossover.php">Crossover</a></li>
                     <li><a href="bitFlipMutation.php">Mutation</a></li>
-                    <li><a href="forum.php">Computational Intelligence Forum</a></li>
+                    <li><a href="forum.php">CI Forum</a></li>
+                    <li><a href="search/index.php">Articles</a></li>
                     </ul>
                     </div>
                     
