@@ -13,7 +13,7 @@ we need to make sure that no article in the database has the same title or the s
 
 <a href="../index.php" style="float: right;  margin-top:20px;" class="btn btn-warning">Back to the Website</a>
 <h1>Front page</h1>
-<h2>All articles</h2>
+<h2>All articles #1</h2>
 
 <!--The following div tag will contain all the articles that we have in the database.-->
 <div class="article_container">
